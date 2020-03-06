@@ -1,1 +1,35 @@
-Member tests
+<p id="notice"><%= notice %></p>
+
+<h1>Member Tests</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Member</th>
+      <th>Test</th>
+      <th>Created_at</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @member_tests.each do |member_test| %>
+      <tr>
+        <td><%= member_test.id %></td>
+        <td><%= member_test.member.name %></td>
+        <td><%= member_test.test.name %></td>
+        <td><%= member_test.created_at %></td>
+        <td>
+          <%= link_to 'Show', member_test %>
+          <%= link_to 'Edit', edit_member_test_path(member_test) %>
+          <%= link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>s
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Member Test', new_member_test_path %>

@@ -1,2 +1,59 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "formtastic";
+@import "formtastic-bootstrap";
+
+.formtastic {
+  text-align: center;
+
+  label {
+    color: black !important;
+  }
+  .actions {
+    padding-left: 20px;
+  }
+
+  .inputs {
+    .input {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .string,
+    .email,
+    .select,
+    .number {
+      width: 600px;
+
+      .form-control {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.btn {
+  padding: 5px 10px !important;
+  margin-right: 5px !important;
+
+  &.btn-primary {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    &:hover {
+      color: #fff;
+      background-color: #138496;
+      border-color: #117a8b;
+    }
+  }
+
+  &.btn-secondaty {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    &:hover {
+      color: #212529;
+      background-color: #e2e6ea;
+      border-color: #dae0e5;
+    }
+  }
+}

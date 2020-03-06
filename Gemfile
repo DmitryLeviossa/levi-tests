@@ -58,3 +58,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
+gem 'formtastic', '~> 3.0'
+gem "slim-rails"
+gem 'formtastic-bootstrap'
+

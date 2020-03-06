@@ -1,0 +1,2 @@
+module MemberTestsHelper
+end

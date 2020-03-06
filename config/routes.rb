@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :companies
-  root to: 'member_tests#index'
+  root to: 'members#index'
 
+  resources :tests
+  resources :members
+  resources :member_tests
 end

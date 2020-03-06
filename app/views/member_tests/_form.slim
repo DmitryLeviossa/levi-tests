@@ -1,0 +1,9 @@
+
+= semantic_form_for member_test do |f| 
+  = f.inputs do
+    = f.input :status, as: :select, collection: MemberTest.statuses
+    = f.input :test
+    = f.input :member
+  = f.actions
+    = f.action :submit, as: :button, button_html: { class: 'btn btn-primary' }
+    = f.action :cancel, as: :link, button_html: { class: 'btn btn-secondaty' }
