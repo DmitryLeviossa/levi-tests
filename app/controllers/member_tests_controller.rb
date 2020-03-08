@@ -1,5 +1,5 @@
 class MemberTestsController < ApplicationController
-  before_action :set_member_test, only: [:show, :edit, :update, :destroy]
+  before_action :set_member_test, only: [:show, :edit, :update, :destroy, :pass_form_member, :pass, :print]
 
   def index
     @member_tests = current_company.member_tests
@@ -33,6 +33,14 @@ class MemberTestsController < ApplicationController
   def destroy
     @member_test.destroy
     redirect_to member_tests_url, notice: 'Member test was successfully destroyed.'
+  end
+
+  def pass_form_member; end
+
+  def pass
+  end
+
+  def print
   end
 
   private
