@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
-  resources :questions
-  devise_for :companies
   root to: 'member_tests#index'
+
+  devise_for :companies
 
   resources :tests
   resources :members
-  resources :member_tests
+  resources :member_tests do
+    member do
+      get :print
+      get :pass_form
+      post :pass
+    end
+  end
+  resources :questions
 end

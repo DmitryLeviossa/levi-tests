@@ -2,7 +2,6 @@
 
   h1 Member Tests
   = link_to 'New Member Test', new_member_test_path, class: 'btn btn-primary right'
-  = link_to 'Print', print_member_test_path, class: 'btn btn-primary right'
 
   table.table.table-striped
     thead
@@ -22,7 +21,9 @@
           td = member_test.created_at
           td.table-actions
             = link_to 'Show', member_test
-            = link_to 'Pass', pass_form_member_test if member_test.started?
-            = link_to 'Edit', edit_member_test_path(member_test)
-            = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }
+            - if member_test.started?
+              = link_to 'Print', print_member_test_path(member_test)
+              = link_to 'Pass', pass_form_member_test_path(member_test)
+              = link_to 'Edit', edit_member_test_path(member_test)
+              = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }
   <br>

@@ -35,7 +35,7 @@ class MemberTestsController < ApplicationController
     redirect_to member_tests_url, notice: 'Member test was successfully destroyed.'
   end
 
-  def pass_form_member; end
+  def pass_form; end
 
   def pass
   end
