@@ -13,5 +13,6 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   validates :text, presence: true
+  scope :is_right, -> { where(is_right: true) }
 
 end

@@ -8,7 +8,8 @@ class QuestionsController < ApplicationController
     if @new_question.save
       redirect_to @new_question.test
     else
-      redirect_to @new_question.test
+      @test = @new_question.test
+      render template: "tests/show"
     end
   end
 

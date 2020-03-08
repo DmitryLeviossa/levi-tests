@@ -14,5 +14,14 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
 
   accepts_nested_attributes_for :answers, allow_destroy: true
+
   validates :text, presence: true
+
+  validate :answer_is_rigth
+
+  private
+
+  def answer_is_rigth
+    errors[:base] << "One answers should be right" unless answers.is_right.count == 1
+  end
 end
