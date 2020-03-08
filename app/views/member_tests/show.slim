@@ -1,0 +1,20 @@
+= render "layouts/show_page" do
+  p
+    strong Member:
+    = @member_test.member.name
+  p
+    strong Test:
+    = @member_test.test.name
+
+  h3 Questions
+  table.table.table-striped
+    thead
+      tr
+        th Text
+        th Answer
+
+    tbody
+      - @member_test.member_test_questions.where.not(id: nil).each do |member_test_question|
+        tr
+          td = member_test_question.question.text
+          td = member_test_question.question.answers.find_by(is_right: true).text

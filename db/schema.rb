@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_170830) do
+ActiveRecord::Schema.define(version: 2020_03_08_175133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 2020_03_08_170830) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "member_test_questions", force: :cascade do |t|
+    t.bigint "question_id"
+    t.bigint "member_test_id"
+    t.bigint "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_member_test_questions_on_answer_id"
+    t.index ["member_test_id"], name: "index_member_test_questions_on_member_test_id"
+    t.index ["question_id"], name: "index_member_test_questions_on_question_id"
   end
 
   create_table "member_tests", force: :cascade do |t|
@@ -75,6 +86,9 @@ ActiveRecord::Schema.define(version: 2020_03_08_170830) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "member_test_questions", "answers"
+  add_foreign_key "member_test_questions", "member_tests"
+  add_foreign_key "member_test_questions", "questions"
   add_foreign_key "member_tests", "members"
   add_foreign_key "member_tests", "tests"
   add_foreign_key "members", "companies"

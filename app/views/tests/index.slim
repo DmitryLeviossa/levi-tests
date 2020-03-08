@@ -6,6 +6,7 @@
     thead
       tr
         th Name
+        th All questions count
         th Questions count
         th Pass count
         th Created at
@@ -15,6 +16,7 @@
       - @tests.each do |test|
         tr
           td = link_to test.name, test
+          td = test.questions.count
           td = test.questions_count
           td = test.pass_count
           td = test.created_at
