@@ -1,0 +1,25 @@
+= render "layouts/table" do
+  h1 Tests
+  = link_to 'New Test', new_test_path, class: 'btn btn-primary'
+
+  table.table.table-striped
+    thead
+      tr
+        th Name
+        th Questions count
+        th Pass count
+        th Created at
+        th Actions
+
+    tbody
+      - @tests.each do |test|
+        tr
+          td = link_to test.name, test
+          td = test.questions_count
+          td = test.pass_count
+          td = test.created_at
+          td.table-actions
+            = link_to 'Edit', edit_test_path(test)
+            = link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }
+
+  <br>

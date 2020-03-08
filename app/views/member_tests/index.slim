@@ -1,0 +1,26 @@
+= render "layouts/table" do
+
+  h1 Member Tests
+  = link_to 'New Member Test', new_member_test_path, class: 'btn btn-primary'
+
+  table.table.table-striped
+    thead
+      tr
+        th Member
+        th Test
+        th Status
+        th Created at
+        th Actions
+
+    tbody
+      - @member_tests.each do |member_test|
+        tr
+          td = link_to member_test.member.name, member_test.member
+          td = link_to member_test.test.name, member_test.test
+          td = member_test.status.capitalize
+          td = member_test.created_at
+          td.table-actions
+            = link_to 'Show', member_test
+            = link_to 'Edit', edit_member_test_path(member_test)
+            = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }
+  <br>

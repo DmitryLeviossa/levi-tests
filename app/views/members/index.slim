@@ -1,0 +1,26 @@
+ = render "layouts/table" do
+
+  h1 Members
+  = link_to 'New Member', new_member_path, class: 'btn btn-primary'
+
+  table.table.table-striped
+    thead
+      tr
+        th Name
+        th Email
+        th Passed tests
+        th Created at
+        th Actions
+
+    tbody
+      - @members.each do |member|
+        tr
+          td = link_to member.name, member
+          td = member.email
+          td 0
+          td = member.created_at
+          td.table-actions
+            = link_to 'Edit', edit_member_path(member)
+            = link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' }
+  <br>
+

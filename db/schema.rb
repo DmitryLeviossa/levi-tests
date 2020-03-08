@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_135015) do
+ActiveRecord::Schema.define(version: 2020_03_08_170830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.text "text"
+    t.bigint "question_id"
+    t.boolean "is_right", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
@@ -47,6 +56,14 @@ ActiveRecord::Schema.define(version: 2020_03_06_135015) do
     t.index ["company_id"], name: "index_members_on_company_id"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.text "text"
+    t.bigint "test_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
   create_table "tests", force: :cascade do |t|
     t.string "name"
     t.bigint "company_id"
@@ -57,8 +74,10 @@ ActiveRecord::Schema.define(version: 2020_03_06_135015) do
     t.index ["company_id"], name: "index_tests_on_company_id"
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "member_tests", "members"
   add_foreign_key "member_tests", "tests"
   add_foreign_key "members", "companies"
+  add_foreign_key "questions", "tests"
   add_foreign_key "tests", "companies"
 end

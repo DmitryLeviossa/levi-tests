@@ -5,7 +5,10 @@ class TestsController < ApplicationController
     @tests = current_company.tests
   end
 
-  def show; end
+  def show
+    @new_question = @test.questions.new
+    4.times { @new_question.answers.new }
+  end
 
   def new
     @test = Test.new

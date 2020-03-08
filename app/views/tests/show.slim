@@ -1,0 +1,25 @@
+
+= render "layouts/show_page" do
+  = link_to 'Edit', edit_test_path(@test), class: 'btn btn-primary'
+  p
+    strong Name:
+    = @test.name
+
+  h3 Questions
+  = render 'questions/form', question: @new_question
+
+  table.table.table-striped
+    thead
+      tr
+        th Text
+        th Answer
+        th Actions
+
+    tbody
+      - @test.questions.where.not(id: nil).each do |question|
+        tr
+          td = question.text
+          td = question.answers.find_by(is_right: true).text
+          td.table-actions
+            = link_to 'Edit', edit_question_path(question.id)
+            = link_to 'Destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }

@@ -17,10 +17,12 @@
     .input {
       margin-left: auto;
       margin-right: auto;
+      margin-top: 0;
     }
     .string,
     .email,
     .select,
+    textarea,
     .number {
       width: 600px;
 
@@ -56,4 +58,17 @@
       border-color: #dae0e5;
     }
   }
+}
+
+.table-container {
+  padding: 0 200px;
+}
+.table-actions {
+  a {
+    padding: 0 5px;
+  }
+}
+
+.show-page {
+  padding: 0 200px;
 }
