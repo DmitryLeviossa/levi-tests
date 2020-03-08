@@ -4,11 +4,11 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def create
-    @question = Question.new(question_params)
-    if @question.save
-      redirect_to @question.test, notice: 'Question was successfully created.'
+    @new_question = Question.new(question_params)
+    if @new_question.save
+      redirect_to @new_question.test
     else
-      render :new
+      redirect_to @new_question.test
     end
   end
 

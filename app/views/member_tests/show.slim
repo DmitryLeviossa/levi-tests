@@ -17,4 +17,4 @@
       - @member_test.member_test_questions.where.not(id: nil).each do |member_test_question|
         tr
           td = member_test_question.question.text
-          td = member_test_question.question.answers.find_by(is_right: true).text
+          td = member_test_question.question.answers.find_by(is_right: true)&.text

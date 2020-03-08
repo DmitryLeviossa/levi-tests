@@ -19,7 +19,7 @@
       - @test.questions.where.not(id: nil).each do |question|
         tr
           td = question.text
-          td = question.answers.find_by(is_right: true).text
+          td = question.answers.find_by(is_right: true)&.text
           td.table-actions
             = link_to 'Edit', edit_question_path(question.id)
             = link_to 'Destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }
