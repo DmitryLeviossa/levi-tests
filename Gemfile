@@ -62,3 +62,5 @@ gem 'formtastic', '~> 3.0'
 gem "slim-rails"
 gem 'formtastic-bootstrap'
 gem 'annotate'
+gem "better_errors"
+gem "binding_of_caller"
