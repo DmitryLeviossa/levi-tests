@@ -1,0 +1,28 @@
+= render "layouts/show_page" do
+  = link_to 'Edit', edit_member_path(@member), class: 'btn btn-primary right'
+  p
+    strong Name:
+    = @member.name
+
+  h3 Tests
+  table.table.table-striped
+    thead
+      tr
+        th Test
+        th Status
+        th Created at
+        th Actions
+
+    tbody
+      - @member.member_tests.each do |member_test|
+        tr
+          td = link_to member_test.test.name, member_test.test
+          td = member_test.status.capitalize
+          td = member_test.created_at
+          td.table-actions
+            = link_to 'Show', member_test
+            - if member_test.started?
+              = link_to 'Print', print_member_test_path(member_test)
+              = link_to 'Pass', pass_form_member_test_path(member_test)
+              = link_to 'Edit', edit_member_test_path(member_test)
+              = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }
