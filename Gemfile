@@ -61,4 +61,4 @@ gem 'jquery-rails'
 gem 'formtastic', '~> 3.0'
 gem "slim-rails"
 gem 'formtastic-bootstrap'
-
+gem 'annotate'
