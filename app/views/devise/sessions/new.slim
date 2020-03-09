@@ -1,0 +1,9 @@
+= render 'layouts/form' do
+  h1 Log in
+  = semantic_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+    = f.inputs do
+      = f.input :email
+      = f.input :password, as: :password
+
+    = f.actions
+      = f.action :submit, as: :button, label: 'Log in', button_html: { class: 'btn btn-primary' }
