@@ -1,5 +1,5 @@
 class MemberTestsController < ApplicationController
-  before_action :set_member_test, only: [:show, :edit, :update, :destroy, :pass_form_member, :pass, :print, :regenerate]
+  before_action :set_member_test, only: [:show, :edit, :update, :destroy, :pass_form, :pass, :print, :regenerate]
 
   def index
     @member_tests = current_company.member_tests
@@ -33,6 +33,11 @@ class MemberTestsController < ApplicationController
   def pass_form; end
 
   def pass
+    if @member_test.update(pass_params)
+      redirect_to @member_test, notice: 'Member test was completed.'
+    else
+      render :pass_form
+    end
   end
 
   def print
@@ -45,5 +50,9 @@ class MemberTestsController < ApplicationController
 
     def member_test_params
       params.require(:member_test).permit(:passed, :member_id, :test_id)
+    end
+
+    def pass_params
+      params.require(:member_test).permit(member_test_questions_attributes: [:id, :answer_id])
     end
 end

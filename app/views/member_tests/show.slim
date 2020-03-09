@@ -1,8 +1,7 @@
 = render "layouts/show_page" do
-  - if @member_test.started?
-    = link_to 'Print', print_member_test_path(@member_test), class: 'btn btn-primary right'
-    = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn-primary right'
-    = link_to 'Regenarate', regenerate_member_test_path(@member_test), class: 'btn btn-primary right'
+  = link_to 'Print', print_member_test_path(@member_test), class: 'btn btn-primary right'
+  = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn-primary right'
+  = link_to 'Regenarate', regenerate_member_test_path(@member_test), class: 'btn btn-primary right'
 
   p
     strong Member:
@@ -10,6 +9,9 @@
   p
     strong Test:
     = @member_test.test.name
+  p
+    strong Status:
+    = @member_test.status.capitalize
 
   h3 Questions
   table.table.table-striped

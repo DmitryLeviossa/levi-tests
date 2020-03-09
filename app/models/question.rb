@@ -20,6 +20,10 @@ class Question < ApplicationRecord
 
   validate :answer_is_rigth
 
+  def right_answer
+    answers.find_by(is_right: true)
+  end
+
   private
 
   def answer_is_rigth
