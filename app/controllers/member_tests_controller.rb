@@ -14,7 +14,7 @@ class MemberTestsController < ApplicationController
   def edit; end
 
   def create
-    @member_test = MemberTest.new(member_test_params)
+    @member_test = current_company.member_tests.new(member_test_params)
     if @member_test.save
       redirect_to @member_test, notice: 'Member test was successfully created.'
     else
