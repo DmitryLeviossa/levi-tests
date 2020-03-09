@@ -1,5 +1,5 @@
 class MemberTestsController < ApplicationController
-  before_action :set_member_test, only: [:show, :edit, :update, :destroy, :pass_form_member, :pass, :print]
+  before_action :set_member_test, only: [:show, :edit, :update, :destroy, :pass_form_member, :pass, :print, :regenerate]
 
   def index
     @member_tests = current_company.member_tests
@@ -11,8 +11,6 @@ class MemberTestsController < ApplicationController
     @member_test = MemberTest.new
   end
 
-  def edit; end
-
   def create
     @member_test = current_company.member_tests.new(member_test_params)
     if @member_test.save
@@ -22,12 +20,9 @@ class MemberTestsController < ApplicationController
     end
   end
 
-  def update
-    if @member_test.update(member_test_params)
-      redirect_to @member_test, notice: 'Member test was successfully updated.'
-    else
-      render :edit
-    end
+  def regenerate
+    @member_test.regerenate!
+    redirect_to @member_test, notice: 'Member test was successfully regenerated.'
   end
 
   def destroy

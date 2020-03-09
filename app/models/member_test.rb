@@ -21,6 +21,11 @@ class MemberTest < ApplicationRecord
 
   after_create :populate_member_test_questions
 
+  def regerenate!
+    member_test_questions.destroy_all
+    populate_member_test_questions
+  end
+
   private
 
   def populate_member_test_questions

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get :print
       get :pass_form
       post :pass
+      get :regenerate
     end
   end
   resources :questions
