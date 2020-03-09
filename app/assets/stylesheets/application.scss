@@ -106,3 +106,38 @@
     background-color: white;
   }
 }
+
+.question-container {
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #9c9a9a;
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: justify;
+
+  a {
+    margin-right: 5px;
+  }
+
+  .question {
+    font-weight: 500;
+    margin-top: 10px;
+  }
+  .answer-container {
+    margin-top: 15px;
+    display: flex;
+    .answer {
+      border-radius: 10px;
+      border: 1px solid #9c9a9a;
+      display: inline-block;
+      margin-right: 5px;
+      padding: 10px;
+      flex: 1;
+      background-color: white;
+
+      &.right {
+        background-color: #e7ffe7;
+      }
+    }
+  }
+}

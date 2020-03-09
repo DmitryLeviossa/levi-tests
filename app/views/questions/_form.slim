@@ -10,3 +10,5 @@
         = a.input :is_right
   = f.actions
     = f.action :submit, as: :button, button_html: { class: 'btn btn-primary' }
+    - if is_edit
+      = f.action :cancel, as: :link, url: question.test, button_html: { class: 'btn btn-secondaty' }
