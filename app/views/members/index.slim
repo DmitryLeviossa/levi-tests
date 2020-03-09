@@ -8,8 +8,8 @@
       tr
         th Name
         th Email
+        th Current test
         th Passed tests
-        th Created at
         th Actions
 
     tbody
@@ -17,8 +17,8 @@
         tr
           td = link_to member.name, member
           td = member.email
+          td = member.member_tests.last&.test&.name
           td 0
-          td = member.created_at
           td.table-actions
             = link_to 'Edit', edit_member_path(member)
             = link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' }
