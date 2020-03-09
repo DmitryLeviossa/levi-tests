@@ -23,6 +23,6 @@ class Question < ApplicationRecord
   private
 
   def answer_is_rigth
-    errors[:base] << "One answers should be right" unless answers.is_right.count == 1
+    errors[:base] << "One answers should be right" unless answers.count { |x| x.is_right? } == 1
   end
 end
