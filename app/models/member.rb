@@ -15,5 +15,5 @@ class Member < ApplicationRecord
   has_many :member_tests, dependent: :destroy
 
   validates :name, :email, presence: true
-  validates :name, uniqueness: { scope: :company_id  }
+  validates :name, uniqueness: { scope: :company_id }
 end

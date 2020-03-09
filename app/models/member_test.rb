@@ -17,6 +17,8 @@ class MemberTest < ApplicationRecord
 
   enum status: { started: "started", passed: "passed", failed: "failed" }
 
+  validates :test_id, uniqueness: { scope: :member_id }
+
   after_create :populate_member_test_questions
 
   private
