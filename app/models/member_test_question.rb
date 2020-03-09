@@ -5,4 +5,11 @@ class MemberTestQuestion < ApplicationRecord
 
   validates :member_test_id, uniqueness: { scope: :question_id }
 
+  def answer_class_name(current_answer)
+    return '' unless answer_id?
+    
+    if answer_id == current_answer.id
+      question.right_answer.id == answer_id ? 'right' : 'not-right'
+    end
+  end
 end
