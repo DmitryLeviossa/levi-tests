@@ -1,6 +1,5 @@
-h1 Editing question
-
-= render 'form', question: @question
-
-= link_to 'Back', questions_path
+= render 'layouts/form' do
+  h1 Editing question
+  = render 'form', member_test: @member
+  = link_to 'Back', questions_path
 
