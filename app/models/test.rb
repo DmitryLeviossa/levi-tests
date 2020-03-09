@@ -12,6 +12,7 @@
 #
 class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
+  has_many :member_tests, dependent: :destroy
 
   validates :name, :questions_count, :pass_count, presence: true
   validates :name, uniqueness: { scope: :company_id }
