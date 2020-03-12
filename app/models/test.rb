@@ -16,7 +16,7 @@ class Test < ApplicationRecord
 
   validates :name, :questions_count, :pass_count, presence: true
   validates :name, uniqueness: { scope: :company_id }
-  validates :counters
+  validate :counters
 
   private
 
