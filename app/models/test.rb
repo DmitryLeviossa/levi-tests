@@ -16,5 +16,11 @@ class Test < ApplicationRecord
 
   validates :name, :questions_count, :pass_count, presence: true
   validates :name, uniqueness: { scope: :company_id }
+  validates :counters
 
+  private
+
+  def counters
+    errors.add(:pass_count, "can't be greater than questions count") if pass_count > questions_count
+  end
 end
