@@ -64,3 +64,5 @@ gem 'formtastic-bootstrap'
 gem 'annotate'
 gem "better_errors"
 gem "binding_of_caller"
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

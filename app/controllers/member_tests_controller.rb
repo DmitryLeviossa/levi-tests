@@ -1,11 +1,25 @@
 class MemberTestsController < ApplicationController
-  before_action :set_member_test, only: [:show, :edit, :update, :destroy, :pass_form, :pass, :print, :regenerate]
+  before_action :set_member_test, only: [:show, :edit, :update, :destroy, :pass_form, :pass, :regenerate]
 
   def index
     @member_tests = current_company.member_tests
   end
 
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Invoice No. #{@member_test.id}",
+        page_size: 'A4',
+        template: "member_tests/pdf.slim",
+        layout: "pdf.html",
+        orientation: "Portrait",
+        lowquality: true,
+        zoom: 1,
+        dpi: 75
+      end
+    end
+  end
 
   def new
     @member_test = MemberTest.new
@@ -38,9 +52,6 @@ class MemberTestsController < ApplicationController
     else
       render :pass_form
     end
-  end
-
-  def print
   end
 
   private

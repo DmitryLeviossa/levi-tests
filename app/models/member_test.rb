@@ -33,8 +33,11 @@ class MemberTest < ApplicationRecord
   private
 
   def populate_member_test_questions
-    test.questions.order("RANDOM()").limit(test.questions_count).ids.each do |question_id|
-      member_test_questions.create(question_id: question_id)
+    test.questions.order("RANDOM()").limit(test.questions_count).each do |question|
+      mtq = member_test_questions.create!(question_id: question.id)
+      question.answers.order('Random()').pluck(:id).each_with_index do |x, i| 
+        mtq.member_test_question_answers.create!(answer_id: x, label: ('A'..'Z').to_a[i])
+      end
     end
   end
 

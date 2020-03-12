@@ -7,7 +7,7 @@
         .pass-question-container
           .pass-question
             = a.object.question.text
-          = a.input :answer_id, as: :select, collection: a.object.question.answers.pluck(:text, :id)
+          = a.input :answer_id, as: :select, collection: a.object.member_test_question_answers.pluck(:label, :answer_id)
     = f.actions
       = f.action :submit, as: :button, button_html: { class: 'btn btn-primary' }
       = f.action :cancel, as: :link, button_html: { class: 'btn btn-secondaty' }

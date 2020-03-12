@@ -22,7 +22,7 @@
           td.table-actions
             = link_to 'Show', member_test
             - if member_test.started?
-              = link_to 'Print', print_member_test_path(member_test)
+              = link_to 'Print', member_test_path(member_test, format: :pdf), target: "_blank"
               = link_to 'Pass', pass_form_member_test_path(member_test)
               = link_to 'Edit', edit_member_test_path(member_test)
               = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }
