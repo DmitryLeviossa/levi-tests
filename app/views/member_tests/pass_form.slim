@@ -3,7 +3,7 @@
 
   = semantic_form_for @member_test, url: pass_member_test_path, method: :post do |f|
     = f.inputs 'Questions' do
-      - f.semantic_fields_for :member_test_questions do |a|
+      - f.semantic_fields_for :member_test_questions, @member_test.member_test_questions.order(:id) do |a|
         .pass-question-container
           .pass-question
             = a.object.question.text
