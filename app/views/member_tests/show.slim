@@ -19,6 +19,7 @@
       .question
         = member_test_question.question.text
       .answer-container
-        - member_test_question.question.answers.each do |answer|
-          .answer class=(member_test_question.answer_class_name(answer))
-            = answer.text
+        - member_test_question.member_test_question_answers.each do |member_test_question_answer|
+          .answer class=(member_test_question.answer_class_name(member_test_question_answer.answer))
+            div = "(#{member_test_question_answer.label})"
+            = member_test_question_answer.answer.text
