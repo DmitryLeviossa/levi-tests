@@ -3,7 +3,7 @@ class MemberTestQuestion < ApplicationRecord
   belongs_to :question
   belongs_to :answer, optional: true
 
-  has_many :member_test_question_answers
+  has_many :member_test_question_answers, dependent: :destroy
 
   validates :member_test_id, uniqueness: { scope: :question_id }
 

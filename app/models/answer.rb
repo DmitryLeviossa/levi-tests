@@ -11,6 +11,7 @@
 #
 class Answer < ApplicationRecord
   belongs_to :question
+  
   has_many :member_test_questions, dependent: :destroy
 
   validates :text, presence: true
