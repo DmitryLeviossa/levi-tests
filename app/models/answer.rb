@@ -13,6 +13,7 @@ class Answer < ApplicationRecord
   belongs_to :question
   
   has_many :member_test_questions, dependent: :destroy
+  has_many :member_test_question_answers, dependent: :destroy
 
   validates :text, presence: true
   scope :is_right, -> { where(is_right: true) }
