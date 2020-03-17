@@ -14,7 +14,7 @@
     = @member_test.status.capitalize
 
   h3 Questions
-  - @member_test.member_test_questions.each_with_index do |member_test_question, index|
+  - @member_test.member_test_questions.order(:id).each_with_index do |member_test_question, index|
     .question-container
       .question
         = member_test_question.question.text
