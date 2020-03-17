@@ -12,6 +12,7 @@ class MemberTestsController < ApplicationController
         render pdf: "Invoice No. #{@member_test.id}",
         page_size: 'A4',
         template: "member_tests/pdf.slim",
+        encoding: "utf8",
         layout: "pdf.html",
         orientation: "Portrait",
         lowquality: true,
