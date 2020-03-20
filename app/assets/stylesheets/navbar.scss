@@ -1,0 +1,111 @@
+@import "./variables.scss";
+
+.navbar {
+  font: 600 1em/1.2 $base-font-family;
+  &--content {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 15% 30px 0;
+    #_menu-toggle {
+      cursor: pointer;
+      // display: block;
+      &:checked + .navbar--items {
+        display: flex;
+      }
+      &:checked + .navbar--collapse {
+        display: block;
+      }
+      display: none;
+    }
+  }
+  &--trigger {
+    padding: 0 115px;
+    display: none;
+    @media (max-width: 991px) {
+      display: block;
+      margin: auto 0;
+    }
+    label {
+      display: block;
+      button:focus {
+        outline: none;
+      }
+    }
+  }
+  &--headers {
+    padding: 0 115px;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 1.5em;
+    line-height: 16px;
+    @media (max-width: 991px) {
+      padding: 0;
+    }
+  }
+  &--collapse {
+    display: flex;
+    // justify-content: space-between;
+    justify-content: flex-end;
+    width: 100%;
+    @media (max-width: 991px) {
+      flex-direction: column;
+      width: 100%;
+      padding: 0 0;
+      border-right: 0;
+      display: none;
+      max-height: 0;
+      background: white;
+      position: absolute;
+      top: 90px;
+      right: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      z-index: 3;
+      border-bottom: 1px solid #959699;
+    }
+  }
+  &--nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  &--items {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1px;
+    // width: 75%;
+    width: 92%;
+    // justify-content: space-between;
+    @media (max-width: 991px) {
+      flex-direction: column;
+      width: 100%;
+      padding: 0 0;
+      border-right: 0;
+    }
+  }
+  &--item {
+    padding-right: 70px;
+    @media (max-width: 991px) {
+      display: block;
+      border-bottom: 1px solid $border-line;
+      background-color: $white;
+    }
+  }
+  &--link {
+    text-decoration: none;
+    color: $black;
+    @media (max-width: 991px) {
+      display: block;
+      background-color: $white;
+      padding: 12px 0 12px 113px;
+    }
+  }
+  &--border--container {
+    margin-bottom: 10px;
+    padding: 0 80px;
+    &--line {
+      border-top: 1px solid $border-line;
+    }
+  }
+}
