@@ -1,0 +1,8 @@
+@import "../../../variables.scss";
+@mixin link {
+  color:black;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

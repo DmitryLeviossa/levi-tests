@@ -55,14 +55,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
 gem 'formtastic', '~> 3.0'
 gem "slim-rails"
-gem 'formtastic-bootstrap'
 gem 'annotate'
 gem "better_errors"
 gem "binding_of_caller"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'hamburgers'

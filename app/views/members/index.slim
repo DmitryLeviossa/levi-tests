@@ -1,7 +1,7 @@
  = render "layouts/table" do
 
   h1 Members
-  = link_to 'New Member', new_member_path, class: 'btn btn-primary right'
+  = link_to 'New Member', new_member_path, class: 'btn btn--primary black right'
 
   table.table.table-striped
     thead
@@ -10,17 +10,17 @@
         th Email
         th Current test
         th Passed tests
-        th Actions
+        th.table-column-actions2 Actions
 
     tbody
       - @members.each do |member|
         tr
-          td = link_to member.name, member
+          td = link_to member.name, member, class: 'link'
           td = member.email
           td = member.member_tests.last&.test&.name
           td 0
           td.table-actions
-            = link_to 'Edit', edit_member_path(member)
-            = link_to 'Destroy', member, method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to 'edit', edit_member_path(member), class: 'btn btn--primary white'
+            = link_to 'delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--primary black'
   <br>
 
