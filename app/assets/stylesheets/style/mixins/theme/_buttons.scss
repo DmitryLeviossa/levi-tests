@@ -1,0 +1,27 @@
+@import "../../../variables.scss";
+@mixin base-button() {
+  padding: 10px 0 !important;
+  border-radius: 10px;
+  border: 1px solid $button;
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+  }
+  &.btn--primary {
+    width: 240px;
+  }
+  &.white {
+    &:hover {
+      color: $white;
+      background-color: $black;
+    }
+  }
+  &.black {
+    color: $white;
+    background-color: $black;
+    &:hover {
+      color: $black;
+      background-color: $white;
+    }
+  }
+}

@@ -1,23 +1,28 @@
-nav.navbar.navbar-default
-    .container-fluid
-      .navbar-header
+nav.navbar.navbar--default
+    .navbar--content
+      .navbar--trigger 
+        = label_tag '_menu-toggle' 
+      - if company_signed_in?
+        .navbar--headers
+          = link_to(current_company.name, root_path, class: "navbar--brand navbar--link")
+      = check_box_tag'#menu-toggle'
+      .collapse.navbar--collapse#bs--example--navbar--collapse--1
         - if company_signed_in?
-          = link_to(current_company.name, root_path, class: "navbar-brand")
-      .collapse.navbar-collapse#bs-example-navbar-collapse-1
-        - if company_signed_in?
-          ul.nav.navbar-nav
-            li.nav-item
-              = link_to('Member tests', member_tests_path, class: "nav-link")
-            li.nav-item
-              = link_to('Members', members_path, class: "nav-link")   
-            li.nav-item
-              = link_to('Tests', tests_path, class: "nav-link")
+          ul.nav.navbar--nav.navbar--items
+            li.navbar--item
+              = link_to('Member tests', member_tests_path, class: "navbar--link")
+            li.navbar--item
+              = link_to('Members', members_path, class: "navbar--link")   
+            li.navbar--item
+              = link_to('Tests', tests_path, class: "navbar--link")
               
-        ul.nav.navbar-nav.navbar-right
+        ul.nav.navbar--nav.navbar--right
           - if company_signed_in?
-            li = link_to('Logout', destroy_company_session_path, method: :delete, class: "nav-link")
+            li = link_to('Logout', destroy_company_session_path, method: :delete, class: "navbar--link")
           - else
             - if controller_name != 'sessions'
-              li = link_to "Log in", new_session_path(resource_name)
+              li = link_to "Log in", new_session_path(resource_name),class: "navbar--link"
             - if devise_mapping.registerable? && controller_name != 'registrations'
-              li = link_to "Sign up", new_registration_path(resource_name)
+              li = link_to "Sign up", new_registration_path(resource_name), class: "navbar--link"
+    .navbar--border--container
+      .navbar--border--container--line  
