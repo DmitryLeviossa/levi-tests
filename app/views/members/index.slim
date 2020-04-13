@@ -20,7 +20,7 @@
           td = member.member_tests.last&.test&.name
           td 0
           td.table-actions
-            = link_to 'edit', edit_member_path(member), class: 'btn btn--white'
-            = link_to 'delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black'
+            = link_to 'edit', edit_member_path(member), class: 'btn btn--white btn--inline'
+            = link_to 'delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
   <br>
 

@@ -3,6 +3,7 @@
   padding: 10px !important;
   border-radius: 10px;
   border: 1px solid $button;
+  box-sizing: border-box;
   text-decoration: none;
   display: block;
   font-size: 16px;
@@ -47,5 +48,8 @@
       color: $black;
       background-color: $white;
     }
+  }
+  &.btn--inline {
+    display: inline;
   }
 }

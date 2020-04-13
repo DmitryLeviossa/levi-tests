@@ -9,8 +9,8 @@
 
       - @test.questions.where.not(id: nil).each do |question|
         .question-container
-          = link_to 'Edit', edit_question_path(question.id)
-          = link_to 'Destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Edit', edit_question_path(question.id), class: "btn btn--white btn--inline"
+          = link_to 'Destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn--black btn--inline"
           .question
             = question.text
           .answer-container

@@ -5,10 +5,9 @@
   @include view-page();
   .btn {
     @include base-button();
-    box-sizing: border-box;
   }
   .actions ol {
-      display: flex;
-      justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
   }
 }

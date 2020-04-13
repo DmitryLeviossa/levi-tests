@@ -21,7 +21,7 @@
           td = test.pass_count
           td = test.created_at
           td.table-actions
-            = link_to 'Edit', edit_test_path(test), class: 'btn btn--white'
-            = link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black'
+            = link_to 'Edit', edit_test_path(test), class: 'btn btn--white btn--inline'
+            = link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
 
   <br>

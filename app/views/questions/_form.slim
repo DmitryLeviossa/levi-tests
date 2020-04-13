@@ -1,14 +1,21 @@
 = semantic_form_for question do |f|
   / = question.errors.full_messages
   = f.inputs do
-    = f.text_area :text, class: 'form-control'
+    = f.text_area :text, placeholder: "type your question here", class: 'form-control'
     = f.hidden_field :test_id
   = f.inputs 'Answers' do
     - f.semantic_fields_for :answers do |a|
       .answer-form
-        = a.text_area :text, class: 'form-control'
-        = a.input :is_right
-  = f.actions
-    = f.action :submit, as: :button, button_html: { class: 'btn btn-primary' }
-    - if is_edit
-      = f.action :cancel, as: :link, url: question.test, button_html: { class: 'btn btn-secondaty' }
+          = a.input :is_right
+          = a.text_area :text, placeholder: "type your answer here", class: 'form-control'
+  - unless is_edit
+    .one
+      = f.actions
+        = f.action :submit, as: :button, button_html: { class: 'btn btn--primary' }
+        - if is_edit
+          = f.action :cancel, as: :link, url: question.test, button_html: { class: 'btn btn--secondary' }
+  - else
+    = f.actions
+      = f.action :submit, as: :button, button_html: { class: 'btn btn--primary' }
+      - if is_edit
+        = f.action :cancel, as: :link, url: question.test, button_html: { class: 'btn btn--secondary' }

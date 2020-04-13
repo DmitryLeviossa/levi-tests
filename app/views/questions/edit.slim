@@ -1,3 +1,5 @@
-= render 'layouts/form' do
-  h1 Editing question
-  = render 'form', question: @question, is_edit: true
+.edit-question
+  .edit-question--content
+    = render 'layouts/form' do
+      h1 Editing question
+      = render 'form', question: @question, is_edit: true
