@@ -7,9 +7,18 @@
 @import "hamburgers";
 @import "table";
 @import "form";
+@import "questions";
 
+html,
 body {
   position: relative;
-  height: 100vh;
+  height: 100%;
   margin: 0;
+}
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -200px
+}
+.push {
+  height: 200px;
 }

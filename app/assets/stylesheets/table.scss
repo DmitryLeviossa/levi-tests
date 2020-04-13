@@ -21,6 +21,7 @@
   .btn {
     @include base-button();
     margin-left: 5px;
+    display: inline;
   }
   .table {
     table-layout: fixed;

@@ -1,6 +1,8 @@
 @mixin view-page() {
   font: 600 1em/1.2 $base-font-family;
+  padding: 0 14%;
   &--content {
+    position: relative;
     &--title {
       text-align: center;
       font-size: 2em;

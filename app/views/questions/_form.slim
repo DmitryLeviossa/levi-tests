@@ -1,12 +1,12 @@
 = semantic_form_for question do |f|
-  = question.errors.full_messages
+  / = question.errors.full_messages
   = f.inputs do
-    = f.text_area :text, class: 'form-control input'
+    = f.text_area :text, class: 'form-control'
     = f.hidden_field :test_id
   = f.inputs 'Answers' do
     - f.semantic_fields_for :answers do |a|
       .answer-form
-        = a.text_area :text, class: 'form-control input'
+        = a.text_area :text, class: 'form-control'
         = a.input :is_right
   = f.actions
     = f.action :submit, as: :button, button_html: { class: 'btn btn-primary' }

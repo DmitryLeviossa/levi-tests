@@ -1,0 +1,18 @@
+@import "./variables.scss";
+@import "./style/mixins/theme/viewPage";
+@import "./style/mixins/theme/_buttons";
+
+.show {
+  @include view-page();
+  .btn {
+    @include base-button();
+    &#edit-btn {
+      position: absolute;
+      top: 10px;
+      right: 0;
+    }
+  }
+  h1 {
+    margin-top: 0;
+  }
+}
