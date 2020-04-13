@@ -17,16 +17,34 @@
         right: 14%;
         // bottom: 450px;
         bottom: 0;
+        z-index: -1000;
+        height: 300px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         img {
           width: 100%;
         }
         @media (max-width: 991px) {
           display: none;
         }
+        &.login {
+          background-image: image-url('login_img.svg');
+        }
         &.signup {
           left: 19%;
           width: 200px;
           bottom: 12%;
+          background-image: image-url('signup_img.svg');
+        }
+        &.test {
+          background-image: image-url('test_img.svg');
+        }
+        &.member {
+          background-image: image-url('member_img.svg');
+        }
+        &.member-test {
+          background-image: image-url('member_test_img.svg');
         }
       }
     }
