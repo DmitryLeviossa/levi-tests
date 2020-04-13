@@ -1,0 +1,14 @@
+@import "./variables.scss";
+@import "./style/mixins/theme/viewPage";
+@import "./style/mixins/theme/_buttons";
+.new-form {
+  @include view-page();
+  .btn {
+    @include base-button();
+    box-sizing: border-box;
+  }
+  .actions ol {
+      display: flex;
+      justify-content: space-between;
+  }
+}

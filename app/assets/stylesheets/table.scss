@@ -6,6 +6,11 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 0 14%;
+  p#notice {
+    width: 100%;
+    color: #4BB543;
+    color: #28a745;
+  }
   h1 {
     font-size: 60px;
     margin: 15px 0;
@@ -15,9 +20,6 @@
   }
   .btn {
     @include base-button();
-    text-decoration: none;
-    font-size: 16px;
-    text-align: center;
     margin-left: 5px;
   }
   .table {

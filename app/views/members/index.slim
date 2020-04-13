@@ -1,7 +1,7 @@
  = render "layouts/table" do
 
   h1 Members
-  = link_to 'New Member', new_member_path, class: 'btn btn--primary black right'
+  = link_to 'New Member', new_member_path, class: 'btn btn--primary right'
 
   table.table.table-striped
     thead
@@ -20,7 +20,7 @@
           td = member.member_tests.last&.test&.name
           td 0
           td.table-actions
-            = link_to 'edit', edit_member_path(member), class: 'btn btn--primary white'
-            = link_to 'delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--primary black'
+            = link_to 'edit', edit_member_path(member), class: 'btn btn--white'
+            = link_to 'delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black'
   <br>
 

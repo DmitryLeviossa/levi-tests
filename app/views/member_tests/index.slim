@@ -1,7 +1,7 @@
 = render "layouts/table" do
 
   h1 Member tests
-  = link_to 'New member test', new_member_test_path, class: 'btn btn--primary black right'
+  = link_to 'New member test', new_member_test_path, class: 'btn btn--primary right'
   
   table.table.table-striped
     thead
@@ -16,14 +16,14 @@
     tbody
       - @member_tests.each do |member_test|
         tr
-          td = link_to 'Show', member_test, class: 'btn btn--primary black'
+          td = link_to 'Show', member_test, class: 'btn btn--black'
           td = link_to member_test.member.name, member_test.member, class: 'link'
           td = link_to member_test.test.name, member_test.test, class: 'link'
           td = member_test.status.capitalize
           td = member_test.created_at.strftime('%F')
           td.table-actions
-            = link_to 'Print', member_test_path(member_test, format: :pdf), target: "_blank", class: 'btn btn--primary black'
-            = link_to 'Pass', pass_form_member_test_path(member_test), class: 'btn btn--primary black'
-            = link_to 'Regenarate', regenerate_member_test_path(member_test), class: 'btn btn--primary white'
-            = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--primary white'
+            = link_to 'Print', member_test_path(member_test, format: :pdf), target: "_blank", class: 'btn btn--black'
+            = link_to 'Pass', pass_form_member_test_path(member_test), class: 'btn btn--black'
+            = link_to 'Regenarate', regenerate_member_test_path(member_test), class: 'btn btn--white'
+            = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--white'
   <br>

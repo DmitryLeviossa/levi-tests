@@ -3,24 +3,43 @@
   padding: 10px !important;
   border-radius: 10px;
   border: 1px solid $button;
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
   cursor: pointer;
   &:focus {
     outline: 0;
   }
   &.btn--primary {
     width: 240px;
+    color: $white;
+    background-color: $black;
+    &:hover {
+      color: $black;
+      background-color: $white;
+    }
   }
-  &.right {
-    margin-left: auto;
-  }
-  &.white {
+  &.btn--secondary {
+    width: 240px;
     color: $black;
+    background-color: $white;
     &:hover {
       color: $white;
       background-color: $black;
     }
   }
-  &.black {
+  &.right {
+    margin-left: auto;
+  }
+  &.btn--white {
+    color: $black;
+    background-color: $white;
+    &:hover {
+      color: $white;
+      background-color: $black;
+    }
+  }
+  &.btn--black {
     color: $white;
     background-color: $black;
     &:hover {
