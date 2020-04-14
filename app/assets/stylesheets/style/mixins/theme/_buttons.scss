@@ -15,37 +15,37 @@
   &.btn--primary {
     width: 240px;
     color: $white;
-    background-color: $black;
+    background-color: $dark;
     &:hover {
-      color: $black;
+      color: $dark;
       background-color: $white;
     }
   }
   &.btn--secondary {
     width: 240px;
-    color: $black;
+    color: $dark;
     background-color: $white;
     &:hover {
       color: $white;
-      background-color: $black;
+      background-color: $dark;
     }
   }
   &.right {
     margin-left: auto;
   }
   &.btn--white {
-    color: $black;
+    color: $dark;
     background-color: $white;
     &:hover {
       color: $white;
-      background-color: $black;
+      background-color: $dark;
     }
   }
   &.btn--black {
     color: $white;
-    background-color: $black;
+    background-color: $dark;
     &:hover {
-      color: $black;
+      color: $dark;
       background-color: $white;
     }
   }

@@ -1,6 +1,6 @@
 @import "../../../variables.scss";
 @mixin link {
-  color:black;
+  color: $dark;
   text-decoration: none;
   &:hover {
     text-decoration: underline;

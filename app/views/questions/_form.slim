@@ -8,14 +8,7 @@
       .answer-form
           = a.input :is_right
           = a.text_area :text, placeholder: "type your answer here", class: 'form-control'
-  - unless is_edit
-    .one
-      = f.actions
-        = f.action :submit, as: :button, button_html: { class: 'btn btn--primary' }
-        - if is_edit
-          = f.action :cancel, as: :link, url: question.test, button_html: { class: 'btn btn--secondary' }
-  - else
-    = f.actions
-      = f.action :submit, as: :button, button_html: { class: 'btn btn--primary' }
-      - if is_edit
-        = f.action :cancel, as: :link, url: question.test, button_html: { class: 'btn btn--secondary' }
+  = f.actions
+    - if is_edit
+      = f.action :cancel, as: :link, url: question.test, button_html: { class: 'btn btn--secondary' }
+    = f.action :submit, as: :button, button_html: { class: 'btn btn--primary' }
