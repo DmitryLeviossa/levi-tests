@@ -19,9 +19,6 @@
   }
   .btn {
     @include base-button();
-    text-decoration: none;
-    font-size: 16px;
-    text-align: center;
     margin-left: 5px;
   }
   .table {

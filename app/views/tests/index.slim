@@ -1,6 +1,6 @@
 = render "layouts/table" do
   h1 Tests
-  = link_to 'New Test', new_test_path, class: 'btn btn--primary black right'
+  = link_to 'New Test', new_test_path, class: 'btn btn--primary right'
 
   table.table.table-striped
     thead
@@ -21,7 +21,7 @@
           td = test.pass_count
           td = test.created_at
           td.table-actions
-            = link_to 'Edit', edit_test_path(test), class: 'btn btn--primary white'
-            = link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--primary black'
+            = link_to 'Edit', edit_test_path(test), class: 'btn btn--white btn--inline'
+            = link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
 
   <br>

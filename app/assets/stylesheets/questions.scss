@@ -1,0 +1,39 @@
+@import "./variables.scss";
+@import "./style/mixins/theme/viewPage";
+@import "./style/mixins/theme/_buttons";
+
+.show, .edit-question {
+  @include view-page();
+  .btn {
+    @include base-button();
+    &#edit-btn {
+      position: absolute;
+      top: 10px;
+      right: 0;
+    }
+  }
+  .inputs {
+    width: 100%;
+    legend span {
+      display: block;
+      font-size: 1.17em;
+      font-weight: bold;
+    }
+  }
+  .answer-form {
+    display: flex;
+    margin: 32px 0;
+    label {
+      margin: 0 !important;
+      padding: 0;
+    }
+  }
+  .one .actions {
+    width: auto;
+  }
+  
+  .actions ol {
+    display: flex;
+    justify-content: space-between;
+  }
+}

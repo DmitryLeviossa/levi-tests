@@ -1,4 +1,9 @@
 = render 'layouts/form' do
-  h1 New test
-  = render 'form', test: @test
+  .new-form
+    .new-form--content
+      .new-form--content--title
+        h1 New Test
+      .new-form--content--form
+        = render 'form', test: @test
+        .new-form--content--form--image.test
 
