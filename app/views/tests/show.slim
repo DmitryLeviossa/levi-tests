@@ -1,7 +1,7 @@
 = render "layouts/show_page" do
   .show
     .show--content
-      = link_to 'Edit', edit_test_path(@test), class: 'btn btn--primary', id: 'edit-btn'
+      = link_to 'Edit', edit_test_path(@test), class: 'btn btn--black', id: 'edit-btn'
       .show--content--title
         h1 = @test.name
       h3 New question
@@ -13,11 +13,17 @@
         .questions--content
           - @test.questions.where.not(id: nil).each do |question|
             .question-container
-              = link_to 'Edit', edit_question_path(question.id), class: "btn btn--white btn--inline"
-              = link_to 'Destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn--black btn--inline"
-              .question
-                = question.text
-              .answer-container
-                - question.answers.each do |answer|
-                  .answer class=(answer.is_right? ? 'right' : '')
-                    = answer.text
+              .padding
+                .question
+                  = question.text
+                .answer-container
+                  - question.answers.each do |answer|
+                    .answer class=(answer.is_right? ? 'right' : '')
+                      .prefix 
+                        ' A:
+                        = image_tag "check.svg"
+                      .text
+                        = answer.text
+              .question-actions
+                = link_to 'edit', edit_question_path(question.id), class: "btn btn--white"
+                = link_to 'destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn--black"

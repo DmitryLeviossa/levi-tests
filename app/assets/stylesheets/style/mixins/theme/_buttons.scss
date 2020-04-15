@@ -1,6 +1,6 @@
 @import "../../../variables.scss";
 @mixin base-button() {
-  padding: 10px !important;
+  padding: 8px !important;
   border-radius: 10px;
   border: 1px solid $button;
   box-sizing: border-box;
