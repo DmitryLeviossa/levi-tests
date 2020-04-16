@@ -17,10 +17,11 @@
                 .question
                   = question.text
                 .answer-container
-                  - question.answers.each do |answer|
+                  - puts question.inspect
+                  - question.answers.each_with_index do |answer, index|
                     .answer class=(answer.is_right? ? 'right' : '')
                       .prefix 
-                        ' A:
+                        = "#{(index+65).chr}:"
                         = image_tag "check.svg"
                       .text
                         = answer.text
