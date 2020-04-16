@@ -3,6 +3,7 @@
 @import "./style/mixins/theme/_buttons";
 @import "./variables.scss";
 .show-page {
+  font-weight: 400;
   #notice {
     text-align: center;
   }
@@ -116,9 +117,23 @@
   .answer-form {
     display: flex;
     margin: 32px 0;
+    .column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 5px;
+      width: 70px;
+      height: 70px;
+    }
     label {
       margin: 0 !important;
       padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      input {
+        width: auto !important;
+      }
     }
   }
   .one .actions {

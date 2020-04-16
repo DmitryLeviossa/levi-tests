@@ -4,10 +4,14 @@
     = f.text_area :text, placeholder: "type your question here", class: 'form-control'
     = f.hidden_field :test_id
   = f.inputs 'Answers' do
+    - index = 0
     - f.semantic_fields_for :answers do |a|
       .answer-form
+        .column
+          = "#{(index+65).chr}:"
           = a.input :is_right
-          = a.text_area :text, placeholder: "type your answer here", class: 'form-control'
+        = a.text_area :text, placeholder: "type your answer here", class: 'form-control'
+      - index += 1
   = f.actions
     - if is_edit
       = f.action :cancel, as: :link, url: question.test, button_html: { class: 'btn btn--secondary' }
