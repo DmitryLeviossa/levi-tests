@@ -13,6 +13,7 @@
         .questions--content
           - @test.questions.where.not(id: nil).each do |question|
             .question-container
+              .question--label
               .padding
                 .question
                   = question.text
@@ -20,11 +21,14 @@
                   - puts question.inspect
                   - question.answers.each_with_index do |answer, index|
                     .answer class=(answer.is_right? ? 'right' : '')
-                      .prefix 
+                      .answer--label 
                         = "#{(index+65).chr}:"
                         = image_tag "check.svg"
                       .text
                         = answer.text
-              .question-actions
-                = link_to 'edit', edit_question_path(question.id), class: "btn btn--white"
-                = link_to 'destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn--black"
+                .question-actions
+                  = link_to 'edit', edit_question_path(question.id), class: "btn btn--white"
+                  = link_to 'destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn--black"
+      .actions
+        = link_to 'Cancel test', '', class: 'btn btn--secondary'
+        = link_to 'Create test', '', class: 'btn btn--primary'

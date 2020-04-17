@@ -1,7 +1,7 @@
 @import "../../../variables.scss";
 
 @mixin view-page() {
-  font: 600 1em/1.2 $base-font-family;
+  font: normal 1em/1.2 $base-font-family;
   padding: 0 14%;
   &--content {
     position: relative;
@@ -24,9 +24,6 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: bottom right;
-        img {
-          width: 100%;
-        }
         @media (max-width: 991px) {
           display: none;
         }

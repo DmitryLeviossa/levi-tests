@@ -1,34 +1,31 @@
 = render "layouts/show_page" do
   .show 
     .show--content
-
-      p
-        strong Member:
-        = @member_test.member.name
-      p
-        strong Test:
-        = @member_test.test.name
-      p
-        strong Status:
-        = @member_test.status.capitalize
+      .show--content--title class="#{@member_test.status == 'passed' ? 'success_pass' : 'failed_pass'}"
+        h1
+          = @member_test.status == 'passed' ? 'Winner winner chicken dinner' : 'Better luck next time'
+        p Your result is #{@member_test.count_rights}/#{@member_test.test.questions_count}
       .questions
         .questions--header
           h1 Questions
         .questions--content
           - @member_test.member_test_questions.order(:id).each_with_index do |member_test_question, index|
             .question-container
+              .question--label
+                strong = "Q#{index+1}"
+                = image_tag (@member_test.is_question_right(member_test_question)? 'check.svg' : 'cross.svg') 
               .padding
                 .question
                   = member_test_question.question.text
                 .answer-container
                   - member_test_question.member_test_question_answers.each do |member_test_question_answer|
-                    .answer class=("#{member_test_question.answer_class_name(member_test_question_answer.answer)}#{(member_test_question_answer.answer.is_right? ? 'right' : '')}" )
-                      .prefix
+                    .answer class=(member_test_question.answer_class_name(member_test_question_answer.answer))
+                      .answer--label
                         = "#{member_test_question_answer.label}:"
-                        = image_tag (member_test_question_answer.answer.is_right? ? "check.svg" : "cross.svg")
+                        = image_tag (member_test_question_answer.answer.is_right? ? 'check.svg' : 'cross.svg')
                       .text
                         = member_test_question_answer.answer.text
-                        
-      = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn-primary right', target: "_blank"
-      = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn-primary right'
-      = link_to 'Regenarate', regenerate_member_test_path(@member_test), class: 'btn btn-primary right'
+      .actions
+        = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
+        = link_to 'Regenarate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
+        = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: "_blank"
