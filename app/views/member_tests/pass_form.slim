@@ -1,13 +1,23 @@
 = render 'layouts/form' do
-  h1 Pass test
-
-  = semantic_form_for @member_test, url: pass_member_test_path, method: :post do |f|
-    = f.inputs 'Questions' do
-      - f.semantic_fields_for :member_test_questions, @member_test.member_test_questions.order(:id) do |a|
-        .pass-question-container
-          .pass-question
-            = a.object.question.text
-          = a.input :answer_id, as: :select, collection: a.object.member_test_question_answers.pluck(:label, :answer_id)
-    = f.actions
-      = f.action :submit, as: :button, button_html: { class: 'btn btn-primary' }
-      = f.action :cancel, as: :link, button_html: { class: 'btn btn-secondaty' }
+  .pass-form
+    .pass-form--content
+      .pass-form--content--title
+        h2 Pass test
+        h1 = @member_test.test.name
+    .pass-form--content--form
+      = semantic_form_for @member_test, url: pass_member_test_path, method: :post do |f|
+        = f.inputs do
+          - index = 0
+          - f.semantic_fields_for :member_test_questions, @member_test.member_test_questions.order(:id) do |a|
+            - index += 1
+            .pass-question
+              .pass-question--container
+                .pass-question--label
+                  = "Q#{index}"
+                .pass-question--text
+                  = a.object.question.text
+                = a.input :answer_id, as: :select, collection: a.object.member_test_question_answers.pluck(:label, :answer_id)
+              .bottom-pad
+        = f.actions
+          = f.action :submit, as: :button, button_html: { class: 'btn btn--primary' }
+          = f.action :cancel, as: :link, button_html: { class: 'btn btn--secondary' }
