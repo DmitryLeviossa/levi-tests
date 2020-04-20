@@ -12,5 +12,4 @@
             = f.input :password, as: :password, :placeholder => 'your password', :required => false
             = f.input :password_confirmation, as: :password, :placeholder => 'repeat your password', :required => false
 
-          / = f.actions
           = f.action :submit, as: :button, label: 'Sign up', button_html: { class: 'btn btn--primary black' }

@@ -8,7 +8,6 @@
     padding: 40px 15% 30px 0;
     #_menu-toggle {
       cursor: pointer;
-      // display: block;
       &:checked + .navbar--items {
         display: flex;
       }
@@ -44,7 +43,6 @@
   }
   &--collapse {
     display: flex;
-    // justify-content: space-between;
     justify-content: flex-end;
     width: 100%;
     @media (max-width: 991px) {
@@ -74,9 +72,7 @@
     display: flex;
     justify-content: flex-start;
     margin-top: 1px;
-    // width: 75%;
     width: 92%;
-    // justify-content: space-between;
     @media (max-width: 991px) {
       flex-direction: column;
       width: 100%;
