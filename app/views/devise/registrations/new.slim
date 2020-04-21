@@ -5,7 +5,6 @@
         h1 Sign up
       .signup--content--form
         .signup--content--form--image.signup
-          = image_tag('signup_img.png', class: "background-img")
         = semantic_form_for resource, as: resource_name, url: registration_path(resource_name) do |f|
           = f.inputs do
             = f.input :name, label: 'Company name', :placeholder => 'your company name', :required => false
@@ -13,5 +12,4 @@
             = f.input :password, as: :password, :placeholder => 'your password', :required => false
             = f.input :password_confirmation, as: :password, :placeholder => 'repeat your password', :required => false
 
-          / = f.actions
           = f.action :submit, as: :button, label: 'Sign up', button_html: { class: 'btn btn--primary black' }

@@ -1,28 +1,28 @@
-= render "layouts/show_page" do
-  = link_to 'Edit', edit_member_path(@member), class: 'btn btn-primary right'
+= render "layouts/table" do
   p
     strong Name:
     = @member.name
-
   h3 Tests
+
+  = link_to 'Edit', edit_member_path(@member), class: 'btn btn--primary right'
   table.table.table-striped
     thead
       tr
         th Test
         th Status
         th Created at
-        th Actions
+        th.table-actions Actions
 
     tbody
       - @member.member_tests.each do |member_test|
         tr
-          td = link_to member_test.test.name, member_test.test
+          td = link_to member_test.test.name, member_test.test, class: "link"
           td = member_test.status.capitalize
           td = member_test.created_at
           td.table-actions
-            = link_to 'Show', member_test
+            = link_to 'Show', member_test, class: 'btn btn--black btn--inline'
             - if member_test.started?
-              = link_to 'Print', member_test_path(member_test, format: :pdf), target: "_blank"
-              = link_to 'Pass', pass_form_member_test_path(member_test)
-              = link_to 'Edit', edit_member_test_path(member_test)
-              = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to 'Print', member_test_path(member_test, format: :pdf), target: "_blank", class: 'btn btn--black btn--inline'
+              = link_to 'Pass', pass_form_member_test_path(member_test), class: 'btn btn--black btn--inline'
+              = link_to 'Edit', edit_member_test_path(member_test), class: 'btn btn--black btn--inline'
+              = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'

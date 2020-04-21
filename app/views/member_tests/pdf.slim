@@ -2,21 +2,21 @@
   .pdf--header
     .company-name
       = current_company.name
-    .test-name
-      ' Test: 
+    .test-name 
       = @member_test.test.name
     .member-name
-      ' Member:
+      ' for member:
       = @member_test.member.name
 
   .pdf--body
-    - @member_test.member_test_questions.order(:id).each_with_index do |member_test_question, index|
-      .question
-        .question-text
-          = "#{index + 1}. #{member_test_question.question.text}"
-        .answers
-          - member_test_question.member_test_question_answers.each do |member_test_question_answer|
-            .answer
-              .answer--lable
-                = member_test_question_answer.label
-              .answer--text = member_test_question_answer.answer.text
+    .container
+      - @member_test.member_test_questions.order(:id).each_with_index do |member_test_question, index|
+        .question
+          .question--text
+            = "#{index + 1}. #{member_test_question.question.text}"
+          .answers
+            - member_test_question.member_test_question_answers.each do |member_test_question_answer|
+              .answer
+                .answer--label
+                  = "#{member_test_question_answer.label}:"
+                .answer--text = member_test_question_answer.answer.text

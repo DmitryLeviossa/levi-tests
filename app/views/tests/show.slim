@@ -1,19 +1,34 @@
 = render "layouts/show_page" do
-  = link_to 'Edit', edit_test_path(@test), class: 'btn btn-primary right'
-  p
-    strong Name:
-    = @test.name
+  .show
+    .show--content
+      = link_to 'Edit', edit_test_path(@test), class: 'btn btn--black', id: 'edit-btn'
+      .show--content--title
+        h1 = @test.name
+      h3 New question
+      = render 'questions/form', question: @new_question, is_edit: false
 
-  h3 Questions
-  = render 'questions/form', question: @new_question, is_edit: false
-
-  - @test.questions.where.not(id: nil).each do |question|
-    .question-container
-      = link_to 'Edit', edit_question_path(question.id)
-      = link_to 'Destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }
-      .question
-        = question.text
-      .answer-container
-        - question.answers.each do |answer|
-          .answer class=(answer.is_right? ? 'right' : '')
-            = answer.text
+      .questions
+        .questions--header
+          h1 Existing questions
+        .questions--content
+          - @test.questions.where.not(id: nil).each do |question|
+            .question-container
+              .question--label
+              .padding
+                .question
+                  = question.text
+                .answer-container
+                  - puts question.inspect
+                  - question.answers.each_with_index do |answer, index|
+                    .answer class=(answer.is_right? ? 'right' : '')
+                      .answer--label 
+                        = "#{(index+65).chr}:"
+                        = image_tag "check.svg"
+                      .text
+                        = answer.text
+                .question-actions
+                  = link_to 'edit', edit_question_path(question.id), class: "btn btn--white"
+                  = link_to 'destroy', question_path(question.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn--black"
+      .actions
+        = link_to 'Cancel test', '', class: 'btn btn--secondary'
+        = link_to 'Create test', '', class: 'btn btn--primary'

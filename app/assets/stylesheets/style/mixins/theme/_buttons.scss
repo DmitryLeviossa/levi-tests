@@ -1,27 +1,55 @@
 @import "../../../variables.scss";
 @mixin base-button() {
-  padding: 10px 0 !important;
+  padding: 8px !important;
   border-radius: 10px;
   border: 1px solid $button;
+  box-sizing: border-box;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  text-align: center;
   cursor: pointer;
   &:focus {
     outline: 0;
   }
   &.btn--primary {
     width: 240px;
-  }
-  &.white {
-    &:hover {
-      color: $white;
-      background-color: $black;
-    }
-  }
-  &.black {
     color: $white;
-    background-color: $black;
+    background-color: $dark;
     &:hover {
-      color: $black;
+      color: $dark;
       background-color: $white;
     }
+  }
+  &.btn--secondary {
+    width: 240px;
+    color: $dark;
+    background-color: $white;
+    &:hover {
+      color: $white;
+      background-color: $dark;
+    }
+  }
+  &.right {
+    margin-left: auto;
+  }
+  &.btn--white {
+    color: $dark;
+    background-color: $white;
+    &:hover {
+      color: $white;
+      background-color: $dark;
+    }
+  }
+  &.btn--black {
+    color: $white;
+    background-color: $dark;
+    &:hover {
+      color: $dark;
+      background-color: $white;
+    }
+  }
+  &.btn--inline {
+    display: inline;
   }
 }

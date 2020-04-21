@@ -1,0 +1,55 @@
+@import "./style/mixins/theme/buttons";
+@import "./style/mixins/theme/link";
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 14%;
+  #notice {
+    width: 100%;
+    color: #43A047;
+  }
+  h1 {
+    font-size: 60px;
+    margin: 15px 0;
+  }
+  .link {
+    @include link();
+  }
+  .btn {
+    @include base-button();
+    margin-left: 5px;
+  }
+  .table {
+    table-layout: fixed;
+    width: 100%;
+    border-spacing: 0px;
+    td,th {
+      height: 50px;
+      text-align: left;
+    }
+    tr .btn {
+      text-transform: lowercase;
+      padding: 5px 15px !important;
+    }
+    .table-actions {
+      width: 400px;
+    }
+    .table-column-actions2 {
+      width: 170px;
+    }
+    .table-column-actions4 {
+      width: 370px;
+    }
+    .table-column-show-btn {
+      width: 90px;
+    }
+    td {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 5px;
+      border-top: 1px solid rgba(42, 45, 51, 0.25);
+    }
+  }
+}

@@ -12,6 +12,8 @@ class MemberTestQuestion < ApplicationRecord
     
     if answer_id == current_answer.id
       question.right_answer.id == answer_id ? 'right' : 'not-right'
+    else
+      question.right_answer.id == current_answer.id ? 'right' : ''
     end
   end
 end

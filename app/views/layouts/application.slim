@@ -10,6 +10,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   body
-    = render 'layouts/navbar'
-    = yield
+    .wrapper
+      = render 'layouts/navbar'
+      = yield
+      .push
     = render 'layouts/footer'

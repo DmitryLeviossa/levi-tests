@@ -1,6 +1,10 @@
+@import "../../../variables.scss";
+
 @mixin view-page() {
-  font: 600 1em/1.2 $base-font-family;
+  font: normal 1em/1.2 $base-font-family;
+  padding: 0 14%;
   &--content {
+    position: relative;
     &--title {
       text-align: center;
       font-size: 2em;
@@ -13,20 +17,33 @@
       &--image {
         width: 300px;
         position: absolute;
-        // right: 270px;
-        right: 14%;
-        // bottom: 450px;
+        right: 0;
         bottom: 0;
-        img {
-          width: 100%;
-        }
+        z-index: -1000;
+        height: 300px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: bottom right;
         @media (max-width: 991px) {
           display: none;
         }
+        &.login {
+          background-image: image-url('login_img.svg');
+        }
         &.signup {
-          left: 19%;
-          width: 200px;
-          bottom: 12%;
+          left: 0;
+          bottom: 0;
+          background-position: bottom left;
+          background-image: image-url('signup_img.svg');
+        }
+        &.test {
+          background-image: image-url('test_img.svg');
+        }
+        &.member {
+          background-image: image-url('member_img.svg');
+        }
+        &.member-test {
+          background-image: image-url('member_test_img.svg');
         }
       }
     }
@@ -39,10 +56,25 @@
         list-style-type: none;
       }
       fieldset {
-        padding: 0 0 36px !important;
+        padding: 0 0 18px !important;
         width: 500px;
         @media (max-width: 575px) {
           width: 400px;
+        }
+        textarea {
+          margin: 0 auto;
+          padding: 10px 0 10px 35px !important;
+          border: 1px solid $border-line;
+          border-radius: 9px;
+          width: 100% !important;
+          min-height: 100px;
+          box-sizing: border-box;
+          font-weight: normal;
+          &::placeholder {
+            color: #cacbcc;
+            font-family: $base-font-family;
+            font-weight: normal;
+          }
         }
         li {
           display: flex;
@@ -56,7 +88,7 @@
               text-decoration: none;
             }
           }
-          input {
+          input, select {
             margin: 0 auto;
             padding: 10px 0 10px 35px !important;
             border: 1px solid $border-line;
@@ -64,25 +96,21 @@
             width: 100% !important;
             outline: none;
             box-sizing: border-box;
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover, 
+            &:-webkit-autofill:focus, 
+            &:-webkit-autofill:active {
+              box-shadow: 0 0 0 30px white inset !important;
+            }
             &::placeholder {
               color: #cacbcc;
               line-height: 44px;
-              font-family: Inter;
+              font-family: $base-font-family;
               font-weight: normal;
             }
           }
         }
       }
     }
-    // &--box {
-    //   display: flex;
-    //   justify-content: flex-end;
-    //   &--image {
-    //     width: 300px;
-    //     img {
-    //       width: 100%;
-    //     }
-    //   }
-    // }
   }
 }

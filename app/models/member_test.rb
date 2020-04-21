@@ -18,7 +18,7 @@ class MemberTest < ApplicationRecord
   enum status: { started: "started", passed: "passed", failed: "failed" }
 
   validates :test_id, uniqueness: { scope: :member_id }
-
+  
   after_create :populate_member_test_questions
   before_update :check_results
 
@@ -28,6 +28,18 @@ class MemberTest < ApplicationRecord
     member_test_questions.destroy_all
     update_column(:status, :started)
     populate_member_test_questions
+  end
+
+  def is_question_right question
+    return question.answer_id? ? question.answer_id == question.question.right_answer&.id : false
+  end
+
+  def count_rights
+    right_count = 0
+    member_test_questions.each do |question|
+      right_count += 1 if is_question_right question
+    end 
+    return right_count
   end
 
   private
@@ -41,13 +53,9 @@ class MemberTest < ApplicationRecord
     end
   end
 
+
   def check_results
-    right_count = 0
-    member_test_questions.each do |question|
-      if question.answer_id?
-        right_count += 1 if question.answer_id == question.question.right_answer&.id
-      end
-    end 
+    right_count = count_rights
     self.status = right_count >= test.pass_count ? :passed : :failed
   end
 end

@@ -1,0 +1,58 @@
+@import "./variables.scss";
+@import "./style/mixins/theme/viewPage";
+@import "./style/mixins/theme/_buttons";
+.new-form, .pass-form  {
+  @include view-page();
+  .btn {
+    @include base-button();
+  }
+  .actions ol {
+    display: flex;
+    justify-content: space-between;
+  }
+  .actions {
+    margin-top: 22px;
+  }
+}
+.pass-form {
+  &--content {
+    &--title {
+      h2 {
+        font-weight: 500;
+        font-size: 28px;
+      }
+      h1 {
+        font-weight: 600;
+        font-size: 32px;
+      }
+      * {
+        margin: 0;
+      }
+    }
+    &--form {
+      .pass-question {
+        margin-top: 40px;
+        &--container {
+          padding: 0 40px;
+        }
+        .input {
+          margin-top: 20px;
+          margin-bottom: 0;
+        }
+        &--label {
+          text-align: center;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+        .bottom-pad {
+          border: 1px solid rgba(42, 45, 51, 0.5);
+          border-top: none;
+          border-bottom-left-radius: 15px;
+          border-bottom-right-radius: 15px;
+          height: 40px;
+          min-height: 1px;
+        }
+      }
+    }
+  }
+}
