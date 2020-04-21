@@ -1,0 +1,21 @@
+@mixin input() {
+    margin: 0 auto;
+    padding: 10px 0 10px 35px !important;
+    border: 1px solid $border-line;
+    border-radius: 9px;
+    width: 100% !important;
+    outline: none;
+    box-sizing: border-box;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus, 
+    &:-webkit-autofill:active {
+      box-shadow: 0 0 0 30px white inset !important;
+    }
+    &::placeholder {
+      color: #cacbcc;
+      line-height: 44px;
+      font-family: $base-font-family;
+      font-weight: normal;
+    }
+}

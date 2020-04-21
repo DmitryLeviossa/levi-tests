@@ -1,20 +1,34 @@
 @import "./variables.scss";
 @import "./style/mixins/theme/viewPage";
 @import "./style/mixins/theme/_buttons";
+@import "./style/mixins/theme/input";
+
 .new-form, .pass-form  {
   @include view-page();
   .btn {
     @include base-button();
   }
-  .actions ol {
-    display: flex;
-    justify-content: space-between;
+  .actions {
+    padding: 0;
+    ol {
+      display: flex;
+      justify-content: space-between;
+    }
   }
   .actions {
-    margin-top: 22px;
+    margin: 22px 0 64px 0;
+  }
+  li.select {
+    display: flex;
+    align-items: baseline;
+    font-weight: 600;
+    select {
+      @include input();
+    }
   }
 }
 .pass-form {
+  margin-top: 35px;
   &--content {
     &--title {
       h2 {
@@ -33,7 +47,7 @@
       .pass-question {
         margin-top: 40px;
         &--container {
-          padding: 0 40px;
+          padding: 0 64px;
         }
         .input {
           margin-top: 20px;
@@ -50,8 +64,11 @@
           border-bottom-left-radius: 15px;
           border-bottom-right-radius: 15px;
           height: 40px;
-          min-height: 1px;
         }
+      }
+      .caption {
+        text-align: center;
+        padding: 64px 0;
       }
     }
   }
