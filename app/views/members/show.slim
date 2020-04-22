@@ -18,7 +18,7 @@
         tr
           td = link_to member_test.test.name, member_test.test, class: "link"
           td = member_test.status.capitalize
-          td = member_test.created_at
+          td = member_test.created_at.strftime('%F')
           td.table-actions
             = link_to 'Show', member_test, class: 'btn btn--black btn--inline'
             - if member_test.started?
