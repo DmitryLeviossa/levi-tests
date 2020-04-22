@@ -1,5 +1,33 @@
 @import "./variables";
 // @import "./fonts";
+footer {
+  &::after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+  .acknowledgement {
+    float: left;
+    width: 200px;
+  }
+  .page-number {
+    position: relative;
+    float: right;
+    width: 50px;
+    height: 50px;
+    margin: 0 0 60px 60px;
+    .number {
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      text-align: center;
+      
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
 
 .pdf {
   h1 {

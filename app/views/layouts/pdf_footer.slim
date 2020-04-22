@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+html lang="en"
+  head
+    meta charset="UTF-8"/
+    meta name="viewport" content="width=device-width, initial-scale=1.0"/
+    = wicked_pdf_stylesheet_link_tag "pdf"
+    title Document
+  body
+    footer
+      .acknowledgement Powered by Leviossa IT
+      .page-number
+        = wicked_pdf_image_tag "page_number.svg"
+        .number 1
+        javascript:
+          var test = document.querySelector('.number');
+          var page = window.location.search.match(/page=(\d+)&/)[1];
+          test.innerHTML = page;

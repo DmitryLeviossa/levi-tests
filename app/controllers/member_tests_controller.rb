@@ -15,6 +15,7 @@ class MemberTestsController < ApplicationController
         encoding: "utf8",
         layout: "pdf.html",
         orientation: "Portrait",
+        footer: { html: { template: "layouts/pdf_footer.slim"}}, 
         lowquality: true,
         zoom: 1,
         dpi: 75
