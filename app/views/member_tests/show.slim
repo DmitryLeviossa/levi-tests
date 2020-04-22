@@ -18,7 +18,8 @@
             .question-container
               .question--label
                 strong = "Q#{index+1}"
-                = image_tag (@member_test.is_question_right(member_test_question)? 'check.svg' : 'cross.svg') 
+                - if @member_test.status != 'started'
+                  = image_tag (@member_test.is_question_right(member_test_question)? 'check.svg' : 'cross.svg') 
               .padding
                 .question
                   = member_test_question.question.text
