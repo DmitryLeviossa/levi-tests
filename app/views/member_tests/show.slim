@@ -1,10 +1,11 @@
 = render "layouts/show_page" do
   .show 
     .show--content
-      .show--content--title class="#{@member_test.status == 'passed' ? 'success_pass' : 'failed_pass'}"
+      .show--content--title class="#{@member_test.status == 'failed' ? 'failed_pass' : 'success_pass'}"
         h1
-          = @member_test.status == 'passed' ? 'Winner winner chicken dinner' : 'Better luck next time'
-        p Your result is #{@member_test.count_rights}/#{@member_test.test.questions_count}
+          = @member_test.status == 'started' ? 'Good luck' : @member_test.status == 'passed' ? 'Winner winner chicken dinner' : 'Better luck next time'
+        - if @member_test.status != 'started'
+          p Your result is #{@member_test.count_rights}/#{@member_test.test.questions_count}
       .actions
         = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
         = link_to 'Regenarate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
