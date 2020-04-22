@@ -28,22 +28,22 @@
         @media (max-width: 991px) {
           display: none;
         }
-        &.sign-in {
+        &.sign-in-img {
           background-image: image-url('login_img.svg');
         }
-        &.signup {
+        &.sign-up-img {
           left: 0;
           bottom: 0;
           background-position: bottom left;
           background-image: image-url('signup_img.svg');
         }
-        &.test {
+        &.test-img {
           background-image: image-url('test_img.svg');
         }
-        &.member {
+        &.member-img {
           background-image: image-url('member_img.svg');
         }
-        &.member-test {
+        &.member-test-img {
           background-image: image-url('member_test_img.svg');
         }
       }

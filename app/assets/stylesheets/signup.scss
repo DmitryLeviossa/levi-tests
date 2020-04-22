@@ -1,7 +1,7 @@
 @import "./variables.scss";
 @import "./style/mixins/theme/viewPage";
 @import "./style/mixins/theme/_buttons";
-.signup {
+.sign-up {
   @include view-page();
   .btn {
     @include base-button();
