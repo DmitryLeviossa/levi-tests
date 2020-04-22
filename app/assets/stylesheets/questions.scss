@@ -3,6 +3,7 @@
 @import "./style/mixins/theme/_buttons";
 @import "./variables.scss";
 .show-page {
+  position: relative;
   font-weight: 400;
   #notice {
     text-align: center;
@@ -14,12 +15,14 @@
     @include base-button();
     &#edit-btn {
       position: absolute;
-      top: -25px;
-      right: 0px;
+      top: 0px;
+      right: 14%;
       width: 100px;
     }
   }
   &--content {
+    position: unset;
+    padding-top: 40px;
     > .actions {
       margin: 60px 0;
       display: flex;
