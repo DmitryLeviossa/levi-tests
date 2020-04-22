@@ -11,9 +11,10 @@
         .questions--header
           h1 Existing questions
         .questions--content
-          - @test.questions.where.not(id: nil).each do |question|
+          - @test.questions.where.not(id: nil).each_with_index do |question, index|
             .question-container
               .question--label
+                strong = "Q#{index+1}"
               .padding
                 .question
                   = question.text
