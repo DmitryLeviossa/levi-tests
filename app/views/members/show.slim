@@ -1,8 +1,8 @@
 = render "layouts/table" do
-  p
-    strong Name:
-    = @member.name
-  h3 Tests
+  .title
+    h1
+      = @member.name
+    h2 Tests
 
   = link_to 'Edit', edit_member_path(@member), class: 'btn btn--primary right'
   table.table.table-striped

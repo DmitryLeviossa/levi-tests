@@ -5,7 +5,7 @@
   &--content {
     display: flex;
     justify-content: space-between;
-    padding: 40px 15% 30px 0;
+    padding: 40px 15% 30px 8%;
     #_menu-toggle {
       cursor: pointer;
       &:checked + .navbar--items {
@@ -18,7 +18,6 @@
     }
   }
   &--trigger {
-    padding: 0 115px;
     display: none;
     @media (max-width: 991px) {
       display: block;
@@ -32,7 +31,7 @@
     }
   }
   &--headers {
-    padding: 0 115px;
+    width: 280px;
     font-style: italic;
     font-weight: normal;
     font-size: 1.5em;
@@ -94,7 +93,7 @@
     @media (max-width: 991px) {
       display: block;
       background-color: $white;
-      padding: 12px 0 12px 113px;
+      text-align: right;
     }
     &.active::after {
       position: relative;
@@ -107,7 +106,7 @@
   }
   &--border--container {
     margin-bottom: 10px;
-    padding: 0 80px;
+    padding: 0 5%;
     &--line {
       border-top: 1px solid $border-line;
     }
