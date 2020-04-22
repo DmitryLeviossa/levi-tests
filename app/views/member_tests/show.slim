@@ -5,9 +5,13 @@
         h1
           = @member_test.status == 'passed' ? 'Winner winner chicken dinner' : 'Better luck next time'
         p Your result is #{@member_test.count_rights}/#{@member_test.test.questions_count}
+      .actions
+        = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
+        = link_to 'Regenarate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
+        = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: "_blank"
       .questions
         .questions--header
-          h1 Questions
+          h1 In details
         .questions--content
           - @member_test.member_test_questions.order(:id).each_with_index do |member_test_question, index|
             .question-container
@@ -25,7 +29,3 @@
                         = image_tag (member_test_question_answer.answer.is_right? ? 'check.svg' : 'cross.svg')
                       .text
                         = member_test_question_answer.answer.text
-      .actions
-        = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
-        = link_to 'Regenarate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
-        = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: "_blank"
