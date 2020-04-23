@@ -84,6 +84,7 @@
         li {
           display: flex;
           flex-direction: column;
+          position: relative;
           margin: 0 !important;
           padding: 0 !important;
           label {
@@ -95,6 +96,22 @@
           }
           input, select {
             @include input();
+          }
+          &.select.input::after {
+            content: '';
+            position: absolute;
+            height: 40px;
+            width: 12%;
+            right: 0;
+            bottom: 0;
+            border-left: 1px solid rgba(42, 45, 51, 0.5);;
+            background-image: image-url('arrows.svg');
+            background-repeat: no-repeat;
+            background-size: 20px;
+            background-size: 0.8em;
+            background-position: center;
+            z-index: 10;
+            pointer-events: none;
           }
         }
       }
