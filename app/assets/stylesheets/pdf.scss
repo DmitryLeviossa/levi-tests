@@ -1,5 +1,25 @@
 @import "./variables";
 // @import "./fonts";
+
+body {
+  &::before {
+    content: '.';
+    opacity: 0;
+  }
+}
+header {
+  position: relative;
+  .company-name {
+    margin: 20px 0;
+    font-style: italic;
+    font-size: 18px;
+  }
+}
+
+body {
+  border: 1px solid red;
+}
+
 footer {
   &::after {
     content: '';
@@ -24,7 +44,6 @@ footer {
       bottom: 10px;
       right: 15px;
       text-align: center;
-      
     }
     img {
       width: 100%;
@@ -37,23 +56,14 @@ footer {
     text-transform: uppercase;
     font-weight: 500;
     text-align: center;
-  margin: 50px 0;
+    margin: 50px 0;
   }
   font-family: "Fira Code", monospace;
   font-weight: normal;
   color: $dark;
-  &::before {
-    content: '.';
-    opacity: 0;
-  }
   &--header {
     text-align: center;
-    margin-top: 80px;
-    .company-name {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+    margin-top: 40px;
     .test-name {
       font-size: 34px;
       text-transform: uppercase;
