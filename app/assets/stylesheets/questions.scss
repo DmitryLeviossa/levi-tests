@@ -60,6 +60,7 @@
     padding-left: 20px;
   }
   .inputs {
+    overflow: visible;
     width: 100%;
     legend span {
       display: block;
@@ -71,21 +72,21 @@
     display: flex;
     margin: 32px 0;
     .column {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       padding: 5px;
       width: 70px;
-      height: 70px;
+      height: 90px;
     }
-    label {
-      margin: 0 !important;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      input {
-        width: auto !important;
+    li {
+      overflow: visible;
+      label {
+        margin: 0 !important;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        input {
+          margin: 8px 0;
+        }
       }
     }
   }

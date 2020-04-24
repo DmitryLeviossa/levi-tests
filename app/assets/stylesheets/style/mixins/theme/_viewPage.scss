@@ -1,5 +1,6 @@
 @import "../../../variables";
-@import "../theme/input";
+@import "./input";
+@import "./checkBox";
 
 @mixin view-page() {
   font: normal 1em/1.2 $base-font-family;
@@ -96,6 +97,9 @@
           }
           input, select {
             @include input();
+          }
+          input[type=checkbox] {
+            @include check-box();
           }
           &.select.input::after {
             content: '';
