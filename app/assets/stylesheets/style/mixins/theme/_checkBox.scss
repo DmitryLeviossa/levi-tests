@@ -1,0 +1,32 @@
+@import "../../../variables.scss";
+
+@mixin check-box() {
+  box-sizing: content-box;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px !important;
+  height: 30px;
+  border: 1px solid $border-line;
+  border-radius: 30px;
+  padding: 0 !important;
+  background-size: 0.9em;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  &:checked {
+    background-image: image-url('check.svg');
+    background-color: $dark;
+    animation: 0.3s ease-in-out wave;
+  }
+  @keyframes wave {
+    from {
+      box-shadow: 0 0 0 0 #E5E5E5;
+    }
+    65% {
+      box-shadow: 0 0 0 10px #E5E5E5;
+    }
+    to {
+      box-shadow: 0 0 0 0 #E5E5E5;
+    }
+  }
+}
