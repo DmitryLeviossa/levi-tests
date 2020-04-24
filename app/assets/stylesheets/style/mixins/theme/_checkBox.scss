@@ -13,6 +13,9 @@
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+  &:focus {
+    outline: none;
+  }
   &:checked {
     background-image: image-url('check.svg');
     background-color: $dark;
