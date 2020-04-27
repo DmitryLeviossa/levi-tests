@@ -1,6 +1,6 @@
 @import "../../../variables.scss";
 
-@mixin check-box() {
+@mixin radio() {
   box-sizing: content-box;
   -webkit-appearance: none;
   appearance: none;

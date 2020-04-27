@@ -1,6 +1,6 @@
 @import "../../../variables";
 @import "./input";
-@import "./checkBox";
+@import "./radioBtn";
 
 @mixin view-page() {
   font: normal 1em/1.2 $base-font-family;
@@ -98,8 +98,8 @@
           input, select {
             @include input();
           }
-          input[type=checkbox] {
-            @include check-box();
+          input[type=radio], input[type=checkbox] {
+            @include radio();
           }
           &.select.input::after {
             content: '';

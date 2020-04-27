@@ -1,7 +1,7 @@
 @import "./variables.scss";
 @import "./style/mixins/theme/viewPage";
-@import "./style/mixins/theme/_buttons";
-@import "./style/mixins/theme/_checkbox";
+@import "./style/mixins/theme/buttons";
+@import "./style/mixins/theme/radioBtn";
 
 .new-form, .pass-form  {
   @include view-page();
@@ -33,7 +33,7 @@
         input {
           order: 1;
           margin-left: 12px;
-          @include check-box();
+          @include radio();
         }
       }
     }
