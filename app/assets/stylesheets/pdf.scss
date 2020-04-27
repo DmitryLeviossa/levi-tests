@@ -1,22 +1,35 @@
 @import "./variables";
 // @import "./fonts";
 
+@mixin page-clear() {
+  content: '.';
+  opacity: 0;
+}
+
 body {
   &::before {
-    content: '.';
-    opacity: 0;
+    @include page-clear();
   }
 }
+
+
+
 header {
-  position: relative;
+  padding: 0 42px;
   .company-name {
     margin: 20px 0;
     font-style: italic;
     font-size: 18px;
   }
+  .boxes {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 footer {
+  padding: 0 42px;
   &::after {
     content: '';
     clear: both;
@@ -48,18 +61,17 @@ footer {
 }
 
 .pdf {
+  padding: 0 42px;
   h1 {
     text-transform: uppercase;
     font-weight: 500;
     text-align: center;
-    margin: 50px 0;
   }
   font-family: "Fira Code", monospace;
   font-weight: normal;
   color: $dark;
   &--header {
     text-align: center;
-    margin-top: 40px;
     .test-name {
       font-size: 34px;
       text-transform: uppercase;
@@ -93,23 +105,30 @@ footer {
     }
   }
   .page-break {
-    content: '.';
-    opacity: 0;
+    @include page-clear();
     display: block;
     clear: both;
     page-break-after: always;
   }
-  table, th, td {
-    border: 0.5px solid gray;
-    border-collapse: collapse;
-  }
-
-  table {
-    width: 100%;
-    margin-bottom: 90px;
-  }
-  th, td {
-    text-align: center;
-    height: 60px;
+  .table-page {
+    &::before {
+      @include page-clear();
+    }
+    h1 {
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 0.5px solid gray;
+      border-collapse: collapse;
+    }
+  
+    table {
+      width: 100%;
+      margin-bottom: 90px;
+    }
+    th, td {
+      text-align: center;
+      height: 60px;
+    }
   }
 }
