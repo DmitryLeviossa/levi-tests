@@ -16,7 +16,7 @@
                   = "Q#{index}:"
                 .pass-question--text
                   = a.object.question.text
-                = a.input :answer_id, as: :select, collection: a.object.member_test_question_answers.pluck(:label, :answer_id)
+                = a.input :answer_id, as: :radio , collection: a.object.member_test_question_answers.pluck(:label, :answer_id)
               .bottom-pad
         p.caption That's all, check yourself once again to make sure of your results
         = f.actions

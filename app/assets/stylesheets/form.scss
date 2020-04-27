@@ -1,7 +1,7 @@
 @import "./variables.scss";
 @import "./style/mixins/theme/viewPage";
-@import "./style/mixins/theme/_buttons";
-@import "./style/mixins/theme/input";
+@import "./style/mixins/theme/buttons";
+@import "./style/mixins/theme/radioBtn";
 
 .new-form, .pass-form  {
   @include view-page();
@@ -18,12 +18,24 @@
   .actions {
     margin: 22px 0 64px 0;
   }
-  li.select {
+  .choices-group {
     display: flex;
-    align-items: baseline;
-    font-weight: 600;
-    select {
-      @include input();
+    justify-content: space-between;
+    float: none;
+    width: auto;
+    margin: 0;
+    padding: 0 12% 0 20%;
+    li.choice {
+      label {
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        input {
+          order: 1;
+          margin-left: 12px;
+          @include radio();
+        }
+      }
     }
   }
 }
