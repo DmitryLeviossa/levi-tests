@@ -15,8 +15,9 @@ class MemberTestsController < ApplicationController
         encoding: "utf8",
         layout: "pdf.html",
         orientation: "Portrait",
+        margin: { left: 0, right: 0 },
+        header: { html: { template: "layouts/pdf_header.slim"}, spacing: 20 }, 
         footer: { html: { template: "layouts/pdf_footer.slim"}}, 
-        header: { html: { template: "layouts/pdf_header.slim"}}, 
         lowquality: true,
         zoom: 1,
         dpi: 75

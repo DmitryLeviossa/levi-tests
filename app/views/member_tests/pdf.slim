@@ -19,22 +19,23 @@
                   = "#{member_test_question_answer.label}:"
                 .answer--text = member_test_question_answer.answer.text
       .page-break
-      h1 leave your answers here
-      table.table.table-striped
-        thead
-          tr
-            - 9.times do |i|
-              td = i+1
-        tbody
+      .table-page
+        h1 leave your answers here
+        table.table.table-striped
+          thead
             tr
               - 9.times do |i|
-                td
-      table.table.table-striped
-        thead
-          tr
-            - 9.times do |i|
-              td = i+10
-        tbody
+                td = i+1
+          tbody
+              tr
+                - 9.times do |i|
+                  td
+        table.table.table-striped
+          thead
             tr
               - 9.times do |i|
-                td
+                td = i+10
+          tbody
+              tr
+                - 9.times do |i|
+                  td
