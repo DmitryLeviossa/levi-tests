@@ -23,21 +23,15 @@
     &--social-icons {
       display: flex;
       justify-content: center;
+      align-items: flex-end;
       padding: 0 0 80px;
+      .footer-link {
+        display: flex;
+        align-items: flex-end;
+      }
       .img-icon {
         margin: 0 20px;
-
-        &.upwork {
-          width: 35px;
-          margin-top: -4px;
-        }
-        &.facebook {
-          width: 25px;
-        }
-        &.instagram {
-          width: 30px;
-          margin-top: -4px;
-        }
+        height: 30px;
       }
     }
   }
