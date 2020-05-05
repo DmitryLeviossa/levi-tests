@@ -6,6 +6,7 @@
   align-items: center;
   padding: 0 14%;
   padding-bottom: 30px;
+ 
   #notice {
     width: 100%;
     color: #43A047;
@@ -51,6 +52,14 @@
       overflow: hidden;
       padding: 5px;
       border-top: 1px solid rgba(42, 45, 51, 0.25);
+    }
+  }
+  @media (max-width: 1140px) {
+    & {
+      overflow-x: scroll;
+    }
+    & table {
+      min-width: 800px;
     }
   }
 }
