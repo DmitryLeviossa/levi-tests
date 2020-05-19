@@ -2,26 +2,27 @@
   h1 Tests
   = link_to 'New Test', new_test_path, class: 'btn btn--primary right'
 
-  table.table.table-striped
-    thead
-      tr
-        th Name
-        th All questions count
-        th Questions count
-        th Pass count
-        th Created at
-        th.table-column-actions2 Actions
-
-    tbody
-      - @tests.each do |test|
+  .table-outer
+    table.table.table-striped
+      thead
         tr
-          td = link_to test.name, test, class: 'link'
-          td = test.questions.count
-          td = test.questions_count
-          td = test.pass_count
-          td = test.created_at.strftime('%F')
-          td.table-actions
-            = link_to 'Edit', edit_test_path(test), class: 'btn btn--white btn--inline'
-            = link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
+          th Name
+          th All questions count
+          th Questions count
+          th Pass count
+          th Created at
+          th.table-column-actions2 Actions
+
+      tbody
+        - @tests.each do |test|
+          tr
+            td = link_to test.name, test, class: 'link'
+            td = test.questions.count
+            td = test.questions_count
+            td = test.pass_count
+            td = test.created_at.strftime('%F')
+            td.table-actions
+              = link_to 'Edit', edit_test_path(test), class: 'btn btn--white btn--inline'
+              = link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
 
   <br>

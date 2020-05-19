@@ -3,26 +3,27 @@
   h1 Members
   = link_to 'New Member', new_member_path, class: 'btn btn--primary right'
 
-  table.table.table-striped
-    thead
-      tr
-        th Name
-        th Email
-        th Current test
-        th Passed tests
-        th Created at
-        th.table-column-actions2 Actions
-
-    tbody
-      - @members.each do |member|
+  .table-outer
+    table.table.table-striped
+      thead
         tr
-          td = link_to member.name, member, class: 'link'
-          td = member.email
-          td = member.member_tests.last&.test&.name
-          td 0
-          td = member.created_at.strftime('%F')
-          td.table-actions
-            = link_to 'edit', edit_member_path(member), class: 'btn btn--white btn--inline'
-            = link_to 'delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
+          th Name
+          th Email
+          th Current test
+          th Passed tests
+          th Created at
+          th.table-column-actions2 Actions
+
+      tbody
+        - @members.each do |member|
+          tr
+            td = link_to member.name, member, class: 'link'
+            td = member.email
+            td = member.member_tests.last&.test&.name
+            td 0
+            td = member.created_at.strftime('%F')
+            td.table-actions
+              = link_to 'edit', edit_member_path(member), class: 'btn btn--white btn--inline'
+              = link_to 'delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
   <br>
 
