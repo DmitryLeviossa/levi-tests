@@ -6,6 +6,7 @@
   align-items: center;
   padding: 0 14%;
   padding-bottom: 30px;
+ 
   #notice {
     width: 100%;
     color: #43A047;
@@ -21,36 +22,49 @@
     @include base-button();
     margin-left: 5px;
   }
-  .table {
-    table-layout: fixed;
-    width: 100%;
-    border-spacing: 0px;
-    td,th {
-      height: 50px;
-      text-align: left;
+  .table-outer {
+    .table {
+      table-layout: fixed;
+      width: 100%;
+      border-spacing: 0px;
+      td,th {
+        height: 50px;
+        text-align: left;
+      }
+      tr .btn {
+        text-transform: lowercase;
+        padding: 5px 15px !important;
+      }
+      .table-actions {
+        width: 400px;
+      }
+      .table-column-actions2 {
+        width: 170px;
+      }
+      .table-column-actions4 {
+        width: 370px;
+      }
+      .table-column-show-btn {
+        width: 90px;
+      }
+      td {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 5px;
+        border-top: 1px solid rgba(42, 45, 51, 0.25);
+      }
     }
-    tr .btn {
-      text-transform: lowercase;
-      padding: 5px 15px !important;
+    @media (max-width: 1140px) {
+      & {
+        overflow-x: scroll;
+      }
+      .table {
+        min-width: 800px;
+      }
     }
-    .table-actions {
-      width: 400px;
-    }
-    .table-column-actions2 {
-      width: 170px;
-    }
-    .table-column-actions4 {
-      width: 370px;
-    }
-    .table-column-show-btn {
-      width: 90px;
-    }
-    td {
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      padding: 5px;
-      border-top: 1px solid rgba(42, 45, 51, 0.25);
-    }
+  }
+  @media (max-width: 1140px) {
+    padding: 0 7%;
   }
 }
