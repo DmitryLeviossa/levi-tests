@@ -1,11 +1,18 @@
 nav.navbar.navbar--default
     .navbar--content
       .navbar--trigger 
-        = label_tag '_menu-toggle' 
+        button id="ham" class="hamburger hamburger--spring" type="button"
+          span class="hamburger-box"
+            span class="hamburger-inner"
+        javascript:
+          document.querySelector('.hamburger').addEventListener('click', (event) => {
+            document.querySelectorAll('#ham').forEach(item => item.classList.toggle('is-active'));
+          })
       - if company_signed_in?
         .navbar--headers
           = link_to(current_company.name, root_path, class: "navbar--brand navbar--link")
-      = check_box_tag'#menu-toggle'
+     
+      #ham.hamburger.dummy
       .collapse.navbar--collapse#bs--example--navbar--collapse--1
         - if company_signed_in?
           ul.nav.navbar--nav.navbar--items
@@ -18,7 +25,7 @@ nav.navbar.navbar--default
               
         ul.nav.navbar--nav.navbar--right
           - if company_signed_in?
-            li = link_to('Logout', destroy_company_session_path, method: :delete, class: "navbar--link")
+            li.navbar--item = link_to('Logout', destroy_company_session_path, method: :delete, class: "navbar--link")
           - else
             - if controller_name != 'sessions'
               li = link_to "Log in", new_session_path(resource_name),class: "navbar--link"
