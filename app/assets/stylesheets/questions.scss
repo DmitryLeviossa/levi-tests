@@ -154,7 +154,6 @@
         .answer-container {
           display: flex;
           justify-content: space-between;
-          align-items: stretch;
           margin-bottom: 20px;
           .answer {
             flex: 1 1 0;
@@ -163,7 +162,7 @@
             border: 1px solid rgba(42, 45, 51, 0.5);
             border-radius: 9px;
             padding: 8px;
-            box-sizing: content-box;
+            box-sizing: border-box;
             &--label {
               display: flex;
               flex-direction: column;
@@ -197,6 +196,20 @@
       }
       &:last-child {
         border: none;
+      }
+    }
+  }
+  @media (max-width: 1140px) {
+    .questions {
+      &--content {
+        padding: 0 30px;
+        .answer-container {
+          flex-direction: column;
+          .answer {
+            width: 100%;
+            margin: 5px 0 !important;
+          }
+        }
       }
     }
   }
