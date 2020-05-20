@@ -34,5 +34,14 @@
         height: 30px;
       }
     }
+    @media (max-width: 575px) {
+      padding: 0 20px;
+      &--social-icons {
+        flex-wrap: wrap;
+        .img-icon {
+          margin-bottom: 10px;
+        }
+      }
+    }
   }
 }
