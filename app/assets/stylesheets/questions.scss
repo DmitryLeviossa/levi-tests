@@ -212,10 +212,10 @@
       &--content {
         padding: 0 30px;
         .answer-container {
-          flex-direction: column;
+          flex-wrap: wrap;
           .answer {
-            width: 100%;
-            margin: 5px 0 !important;
+            min-width: 40%;
+            margin: 5px 5px !important;
           }
         }
       }
