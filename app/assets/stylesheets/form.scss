@@ -79,6 +79,30 @@
           height: 40px;
         }
       }
+      @media (max-width: 1140px) {
+        .pass-question {
+          &--container {
+            padding: 0 20px;
+          }
+        }
+        fieldset.choices {
+          legend {
+            position: unset !important;
+            label {
+              display: block;
+              position: unset !important;
+              width: 100%;
+              text-align: center;
+              margin-bottom: 16px;
+            }
+          }
+          .choices-group {
+            padding: 0 20px;
+            width: 74%;
+            margin: 0 auto;
+          }
+        }
+      }
       .caption {
         text-align: center;
         padding: 64px 0;
