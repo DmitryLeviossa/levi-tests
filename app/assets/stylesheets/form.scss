@@ -10,13 +10,18 @@
   }
   .actions {
     padding: 0;
+    margin: 22px 0 64px 0;
     ol {
       display: flex;
       justify-content: space-between;
+      @media (max-width: 1140px) {
+        flex-direction: column;
+        align-items: center;
+        li {
+          margin-bottom: 8px;
+        }
+      }
     }
-  }
-  .actions {
-    margin: 22px 0 64px 0;
   }
   .choices-group {
     display: flex;
@@ -77,6 +82,30 @@
           border-bottom-left-radius: 15px;
           border-bottom-right-radius: 15px;
           height: 40px;
+        }
+      }
+      @media (max-width: 1140px) {
+        .pass-question {
+          &--container {
+            padding: 0 20px;
+          }
+        }
+        fieldset.choices {
+          legend {
+            position: unset !important;
+            label {
+              display: block;
+              position: unset !important;
+              width: 100%;
+              text-align: center;
+              margin-bottom: 16px;
+            }
+          }
+          .choices-group {
+            padding: 0;
+            width: 100%;
+            margin: 0 auto;
+          }
         }
       }
       .caption {

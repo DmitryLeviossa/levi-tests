@@ -5,6 +5,9 @@
 @mixin view-page() {
   font: normal 1em/1.2 $base-font-family;
   padding: 0 16%;
+  @media (max-width: 1140px) {
+    padding: 0 7%;
+  }
   &--content {
     position: relative;
     padding: 30px 0;
