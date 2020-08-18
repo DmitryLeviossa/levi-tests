@@ -88,6 +88,7 @@ footer {
     .question {
       margin-bottom: 40px;
       &--text {
+        white-space: pre-wrap;
         font-weight: 500;
       }
       .answers {
