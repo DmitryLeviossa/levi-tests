@@ -25,6 +25,6 @@
             td.table-actions
               = link_to 'Print', member_test_path(member_test, format: :pdf), target: "_blank", class: 'btn btn--black btn--inline'
               = link_to 'Pass', pass_form_member_test_path(member_test), class: 'btn btn--black btn--inline'
-              = link_to 'Regenarate', regenerate_member_test_path(member_test), class: 'btn btn--white btn--inline'
+              = link_to 'Regenerate', regenerate_member_test_path(member_test), class: 'btn btn--white btn--inline'
               = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--white btn--inline'
   <br>
