@@ -21,19 +21,9 @@
       .page-break
       .table-page
         h1 leave your answers here
-        - questions_length = @member_test.member_test_questions.length
-
-        - rows = (questions_length / MemberTest::ANSWERS_PER_ROW) + 1
-        - remainder = questions_length % MemberTest::ANSWERS_PER_ROW
-
-        - rows.times do |i|
-          table.table.table-striped
-            - cols = i == rows - 1 ? remainder : MemberTest::ANSWERS_PER_ROW
-            thead
-              tr                  
-                - cols.times do |j|
-                  td = (i * MemberTest::ANSWERS_PER_ROW) + j + 1
-            tbody
-              tr
-                - cols.times do |j|
-                  td
+        .answer--section
+          - @member_test.member_test_questions.each_with_index do |_, i|
+            .answer--container
+              .answer--field
+                = i
+              .answer--field
