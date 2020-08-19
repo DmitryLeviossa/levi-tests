@@ -23,6 +23,7 @@ class MemberTest < ApplicationRecord
   before_update :check_results
 
   accepts_nested_attributes_for :member_test_questions, allow_destroy: true
+  
 
   def regerenate!
     member_test_questions.destroy_all

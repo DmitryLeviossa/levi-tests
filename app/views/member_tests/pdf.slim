@@ -21,21 +21,9 @@
       .page-break
       .table-page
         h1 leave your answers here
-        table.table.table-striped
-          thead
-            tr
-              - 9.times do |i|
-                td = i+1
-          tbody
-              tr
-                - 9.times do |i|
-                  td
-        table.table.table-striped
-          thead
-            tr
-              - 9.times do |i|
-                td = i+10
-          tbody
-              tr
-                - 9.times do |i|
-                  td
+        .answer--section
+          - @member_test.member_test_questions.each_with_index do |_, i|
+            .answer--container
+              .answer--field
+                = i
+              .answer--field
