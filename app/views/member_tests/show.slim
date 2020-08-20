@@ -6,10 +6,14 @@
           = @member_test.status == 'started' ? 'Good luck' : @member_test.status == 'passed' ? 'Winner winner chicken dinner' : 'Better luck next time'
         - if @member_test.status != 'started'
           p Your result is #{@member_test.count_rights}/#{@member_test.test.questions_count}
-      .actions
-        = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
-        = link_to 'Regenerate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
-        = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: "_blank"
+      .action--section
+        .action--line
+          = link_to 'To user', member_path(@member_test), class: 'btn btn--secondary'
+          = link_to 'To test', test_path(@member_test), class: 'btn btn--secondary'   
+        .action--line
+          = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
+          = link_to 'Regenerate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
+          = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: "_blank"
       .questions
         .questions--header
           h1 In details
