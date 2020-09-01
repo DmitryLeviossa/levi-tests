@@ -40,7 +40,11 @@ class MemberTestsController < ApplicationController
 
   def regenerate
     @member_test.regerenate!
-    redirect_to @member_test, notice: 'Member test was successfully regenerated.'
+    if @member_test.status == 'started'
+      redirect_back fallback_location: root_path, notice: 'Cannot regenerate started tests'
+    else 
+      redirect_to @member_test, notice: 'Member test was successfully regenerated.'
+    end
   end
 
   def destroy
@@ -48,10 +52,16 @@ class MemberTestsController < ApplicationController
     redirect_to member_tests_url, notice: 'Member test was successfully destroyed.'
   end
 
-  def pass_form; end
+  def pass_form
+    if @member_test.status == 'draft'
+      @member_test.update(status: 'started');
+    end
+  end
 
   def pass
     if @member_test.update(pass_params)
+      @member_test.check_results
+      @member_test.save
       redirect_to @member_test, notice: 'Member test was completed.'
     else
       render :pass_form

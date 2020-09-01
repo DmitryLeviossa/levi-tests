@@ -1,15 +1,22 @@
 = render "layouts/show_page" do
   .show 
     .show--content
-      .show--content--title class="#{@member_test.status == 'failed' ? 'failed_pass' : 'success_pass'}"
-        h1
-          = @member_test.status == 'started' ? 'Good luck' : @member_test.status == 'passed' ? 'Winner winner chicken dinner' : 'Better luck next time'
-        - if @member_test.status != 'started'
+      - status = @member_test.status
+      .show--content--title class="#{status == 'failed' ? 'failed_pass' : 'success_pass'}"
+        h1          
+          - if status == 'passed'
+            = 'Winner winner chicken dinner'
+          - elsif status == 'failed'
+            = 'Better luck next time'
+          - else
+            = 'Good luck'
+        - if status == 'passed' || status === 'failed'
           p Your result is #{@member_test.count_rights}/#{@member_test.test.questions_count}
       .actions
         = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
-        = link_to 'Regenerate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
-        = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: "_blank"
+        - if status != 'started'
+          = link_to 'Regenerate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
+        = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: '_blank'
       .questions
         .questions--header
           h1 In details
@@ -18,7 +25,7 @@
             .question-container
               .question--label
                 strong = "Q#{index+1}"
-                - if @member_test.status != 'started'
+                - if status == 'passed' || status == 'failed'
                   = image_tag (@member_test.is_question_right(member_test_question)? 'check.svg' : 'cross.svg') 
               .padding
                 .question

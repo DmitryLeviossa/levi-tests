@@ -15,19 +15,19 @@ class MemberTest < ApplicationRecord
 
   has_many :member_test_questions, dependent: :destroy
 
-  enum status: { started: "started", passed: "passed", failed: "failed" }
+  enum status: { draft: "draft", started: "started", passed: "passed", failed: "failed" }
 
   validates :test_id, uniqueness: { scope: :member_id }
   
   after_create :populate_member_test_questions
-  before_update :check_results
+  #before_update :check_results
 
   accepts_nested_attributes_for :member_test_questions, allow_destroy: true
   
 
   def regerenate!
     member_test_questions.destroy_all
-    update_column(:status, :started)
+    update_column(:status, :draft)
     populate_member_test_questions
   end
 
@@ -43,6 +43,11 @@ class MemberTest < ApplicationRecord
     return right_count
   end
 
+  def check_results
+    right_count = count_rights
+    self.status = right_count >= test.pass_count ? :passed : :failed
+  end
+
   private
 
   def populate_member_test_questions
@@ -52,11 +57,5 @@ class MemberTest < ApplicationRecord
         mtq.member_test_question_answers.create!(answer_id: x, label: ('A'..'Z').to_a[i])
       end
     end
-  end
-
-
-  def check_results
-    right_count = count_rights
-    self.status = right_count >= test.pass_count ? :passed : :failed
   end
 end
