@@ -1,20 +1,19 @@
 = render "layouts/show_page" do
   .show 
     .show--content
-      - status = @member_test.status
-      .show--content--title class="#{status == 'failed' ? 'failed_pass' : 'success_pass'}"
+      .show--content--title class="#{@member_test.failed? ? 'failed_pass' : 'success_pass'}"
         h1          
-          - if status == 'passed'
+          - if @member_test.passed?
             = 'Winner winner chicken dinner'
-          - elsif status == 'failed'
+          - elsif @member_test.failed?
             = 'Better luck next time'
           - else
             = 'Good luck'
-        - if status == 'passed' || status === 'failed'
+        - if @member_test.passed? || @member_test.failed?
           p Your result is #{@member_test.count_rights}/#{@member_test.test.questions_count}
       .actions
         = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
-        - if status != 'started'
+        - unless @member_test.started?
           = link_to 'Regenerate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
         = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: '_blank'
       .questions
@@ -25,7 +24,7 @@
             .question-container
               .question--label
                 strong = "Q#{index+1}"
-                - if status == 'passed' || status == 'failed'
+                - if @member_test.passed? || @member_test.failed?
                   = image_tag (@member_test.is_question_right(member_test_question)? 'check.svg' : 'cross.svg') 
               .padding
                 .question

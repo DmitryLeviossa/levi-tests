@@ -1,5 +1,6 @@
 class MemberTestsController < ApplicationController
   before_action :set_member_test, only: [:show, :edit, :update, :destroy, :pass_form, :pass, :regenerate]
+  before_action :validate_regeneration, only: [:regenerate]
 
   def index
     @member_tests = current_company.member_tests
@@ -40,11 +41,7 @@ class MemberTestsController < ApplicationController
 
   def regenerate
     @member_test.regerenate!
-    if @member_test.status == 'started'
-      redirect_back fallback_location: root_path, notice: 'Cannot regenerate started tests'
-    else 
-      redirect_to @member_test, notice: 'Member test was successfully regenerated.'
-    end
+    redirect_to @member_test, notice: 'Member test was successfully regenerated.'
   end
 
   def destroy
@@ -53,15 +50,11 @@ class MemberTestsController < ApplicationController
   end
 
   def pass_form
-    if @member_test.status == 'draft'
-      @member_test.update(status: 'started');
-    end
+    @member_test.update(status: 'started') if @member_test.draft?
   end
 
   def pass
     if @member_test.update(pass_params)
-      @member_test.check_results
-      @member_test.save
       redirect_to @member_test, notice: 'Member test was completed.'
     else
       render :pass_form
@@ -79,5 +72,10 @@ class MemberTestsController < ApplicationController
 
     def pass_params
       params.require(:member_test).permit(member_test_questions_attributes: [:id, :answer_id])
+    end
+
+    def validate_regeneration
+      set_member_test
+      redirect_back fallback_location: root_path, notice: 'Cannot regenerate started tests' if @member_test.started?
     end
 end

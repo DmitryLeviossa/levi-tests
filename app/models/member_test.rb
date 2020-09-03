@@ -20,7 +20,7 @@ class MemberTest < ApplicationRecord
   validates :test_id, uniqueness: { scope: :member_id }
   
   after_create :populate_member_test_questions
-  #before_update :check_results
+  before_update :check_results
 
   accepts_nested_attributes_for :member_test_questions, allow_destroy: true
   
@@ -43,12 +43,14 @@ class MemberTest < ApplicationRecord
     return right_count
   end
 
-  def check_results
-    right_count = count_rights
-    self.status = right_count >= test.pass_count ? :passed : :failed
-  end
-
   private
+
+  def check_results
+    if self.status_was === 'started'
+      right_count = count_rights
+      self.status = right_count >= test.pass_count ? :passed : :failed
+    end
+  end
 
   def populate_member_test_questions
     test.questions.order("RANDOM()").limit(test.questions_count).each do |question|
