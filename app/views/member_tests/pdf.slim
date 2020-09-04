@@ -11,13 +11,16 @@
       - @member_test.member_test_questions.order(:id).each_with_index do |member_test_question, index|
         .question
           .question--text
-            = "#{index + 1}. #{member_test_question.question.text}"
+            .question--label
+              = "#{index + 1}."
+            .question--text
+              = "#{member_test_question.question.text.strip}"
           .answers
             - member_test_question.member_test_question_answers.each do |member_test_question_answer|
               .answer
                 .answer--label
                   = "#{member_test_question_answer.label}:"
-                .answer--text = member_test_question_answer.answer.text
+                .answer--text = member_test_question_answer.answer.text.strip
       .page-break
       .table-page
         h1 leave your answers here
