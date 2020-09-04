@@ -11,11 +11,15 @@
             = 'Good luck'
         - if @member_test.passed? || @member_test.failed?
           p Your result is #{@member_test.count_rights}/#{@member_test.test.questions_count}
-      .actions
-        = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
-        - unless @member_test.started?
-          = link_to 'Regenerate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
-        = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: '_blank'
+      .action--section
+        .action--line
+          = link_to "To #{@member_test.member.name}", member_path(@member_test), class: 'btn btn--secondary'
+          = link_to "To #{@member_test.test.name}", test_path(@member_test), class: 'btn btn--secondary'   
+        .action--line
+          = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
+          - unless @member_test.started?
+            = link_to 'Regenerate', regenerate_member_test_path(@member_test), class: 'btn btn--secondary'
+          = link_to 'Print', member_test_path(@member_test, format: :pdf), class: 'btn btn--primary', target: '_blank'
       .questions
         .questions--header
           h1 In details
