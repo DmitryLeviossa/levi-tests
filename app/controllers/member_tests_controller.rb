@@ -3,7 +3,8 @@ class MemberTestsController < ApplicationController
   before_action :validate_regeneration, only: [:regenerate]
 
   def index
-    @member_tests = current_company.member_tests
+    @status_filter = MemberTest.statuses.keys.include?(params[:status]) ? params[:status] : :passed
+    @member_tests = current_company.member_tests.where(status: status)
   end
 
   def show
