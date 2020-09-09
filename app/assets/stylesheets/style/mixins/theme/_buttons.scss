@@ -1,4 +1,23 @@
 @import "../../../variables.scss";
+
+@mixin base-button--white() {
+  color: $dark;
+  background-color: $white;
+  &:hover {
+    color: $white;
+    background-color: $dark;
+  }
+}
+
+@mixin base-button--black() {
+  color: $white;
+  background-color: $dark;
+  &:hover {
+    color: $dark;
+    background-color: $white;
+  }
+}
+
 @mixin base-button() {
   padding: 8px !important;
   border-radius: 10px;
@@ -13,41 +32,34 @@
     outline: 0;
   }
   &.btn--primary {
+    @include base-button--black();
     width: 240px;
-    color: $white;
-    background-color: $dark;
-    &:hover {
-      color: $dark;
-      background-color: $white;
-    }
   }
   &.btn--secondary {
+    @include base-button--white();
     width: 240px;
-    color: $dark;
-    background-color: $white;
+  }
+  &.btn--white {
+    @include base-button--white();
+  }
+  &.btn--black {
+    @include base-button--black();
+  }
+  &.btn--disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
     &:hover {
-      color: $white;
-      background-color: $dark;
+      color: inherit;
+      background-color: inherit;
     }
+  }
+  &.btn--borderless {
+    border: none;
+    border-radius: 0;
+    margin: 0;
   }
   &.right {
     margin-left: auto;
-  }
-  &.btn--white {
-    color: $dark;
-    background-color: $white;
-    &:hover {
-      color: $white;
-      background-color: $dark;
-    }
-  }
-  &.btn--black {
-    color: $white;
-    background-color: $dark;
-    &:hover {
-      color: $dark;
-      background-color: $white;
-    }
   }
   &.btn--inline {
     display: inline;

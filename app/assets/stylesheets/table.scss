@@ -7,19 +7,28 @@
   padding: 0 14%;
   padding-bottom: 30px;
 
-  .table-header-actions {
+  .table-title-container {
+    width: 100%;
+  }
+  .table-title-section {
     display: flex;
-    flex: 1;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
   }
-
-  .table-header-status {
-    font-size: 18px;
-    font-weight: bold;
-    margin-right: 8px;
+  .table-filters {
+    display: inline-flex;
+    border-radius: 10px;
+    border: 1px solid #2a2d33;
+    overflow: hidden;
   }
- 
+  
+  .vertical-divider {
+    display: inline-block;
+    width: 1px;
+    height: auto;
+    background-color: black;
+  }
+
   #notice {
     width: 100%;
     color: #43A047;
