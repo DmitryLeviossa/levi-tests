@@ -4,7 +4,7 @@ class MemberTestsController < ApplicationController
 
   def index
     @status_filter = MemberTest.statuses.keys.include?(params[:status]) ? params[:status] : :passed
-    @member_tests = current_company.member_tests.where(status: status)
+    @member_tests = current_company.member_tests.where(status: @status_filter)
   end
 
   def show
