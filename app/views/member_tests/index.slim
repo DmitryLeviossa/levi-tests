@@ -1,7 +1,15 @@
 = render "layouts/table" do
 
-  h1 Member tests
-  = link_to 'New member test', new_member_test_path, class: 'btn btn--primary right'
+  .table-title-container
+    .table-title-section
+      h1 Member tests
+      = link_to 'New member test', new_member_test_path, class: 'btn btn--primary'
+    .table-filters
+      - MemberTest.statuses.keys.each_with_index do |status, index|
+        = link_to status.capitalize , url_for(status: status), class: ['btn btn--borderless', @status_filter == status ? 'btn--black btn--unclickable' : 'btn--white'].join(' ')
+        - if index != MemberTest.statuses.keys.size - 1
+          .vertical-divider
+    
   
   .table-outer
     table.table.table-striped
@@ -23,7 +31,7 @@
             td = member_test.status.capitalize
             td = member_test.created_at.strftime('%F')
             td.table-actions
-              = link_to 'Print', member_test_path(member_test, format: :pdf), target: "_blank", class: 'btn btn--black btn--inline'
+              = link_to 'Print', member_test_path(member_test, format: :pdf), target: '_blank', class: 'btn btn--black btn--inline'
               = link_to 'Pass', pass_form_member_test_path(member_test), class: 'btn btn--black btn--inline'
               - unless member_test.started?
                 = link_to 'Regenerate', regenerate_member_test_path(member_test), class: 'btn btn--white btn--inline'
