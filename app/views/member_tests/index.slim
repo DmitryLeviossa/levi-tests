@@ -5,9 +5,9 @@
       h1 Member tests
       = link_to 'New member test', new_member_test_path, class: 'btn btn--primary'
     .table-filters
-      - @statuses.each_with_index do |status, index|
+      - MemberTest.statuses.keys.each_with_index do |status, index|
         = link_to status.capitalize , url_for(status: status), class: ['btn btn--borderless', @status_filter == status ? 'btn--black btn--unclickable' : 'btn--white'].join(' ')
-        - if index != @statuses.size - 1
+        - if index != MemberTest.statuses.keys.size - 1
           .vertical-divider
     
   
