@@ -45,6 +45,9 @@
   &.btn--black {
     @include base-button--black();
   }
+  &.btn--unclickable {
+    pointer-events: none;
+  }
   &.btn--disabled {
     opacity: 0.35;
     cursor: not-allowed;

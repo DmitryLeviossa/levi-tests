@@ -5,13 +5,13 @@
       h1 Member tests
       = link_to 'New member test', new_member_test_path, class: 'btn btn--primary'
     .table-filters
-      = link_to 'Draft tests', url_for(status: :draft), class: ['btn btn--white btn--borderless', @status_filter == 'draft' ? 'btn--disabled' : nil].compact.join(' ')
+      = link_to 'Draft tests', url_for(status: :draft), class: ['btn btn--borderless', @status_filter == 'draft' ? 'btn--black btn--unclickable' : 'btn--white'].join(' ')
       .vertical-divider
-      = link_to 'Started tests', url_for(status: :started), class: ['btn btn--white btn--borderless', @status_filter == 'started' ? 'btn--disabled' : nil].compact.join(' ')
+      = link_to 'Started tests', url_for(status: :started), class: ['btn btn--borderless', @status_filter == 'started' ? 'btn--black btn--unclickable' : 'btn--white'].join(' ')
       .vertical-divider
-      = link_to 'Failed tests', url_for(status: :failed), class: ['btn btn--white btn--borderless', @status_filter == 'failed' ? 'btn--disabled' : nil].compact.join(' ')
+      = link_to 'Failed tests', url_for(status: :failed), class: ['btn btn--borderless', @status_filter == 'failed' ? 'btn--black btn--unclickable' : 'btn--white'].join(' ')
       .vertical-divider
-      = link_to 'Passed tests', url_for(status: :passed), class: ['btn btn--white btn--borderless', @status_filter == 'passed' ? 'btn--disabled' : nil].compact.join(' ')
+      = link_to 'Passed tests', url_for(status: :passed), class: ['btn btn--borderless', @status_filter == 'passed' ? 'btn--black btn--unclickable' : 'btn--white'].join(' ')
     
   
   .table-outer
