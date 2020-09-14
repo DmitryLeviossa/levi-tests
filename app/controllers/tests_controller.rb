@@ -45,6 +45,6 @@ class TestsController < ApplicationController
     end
 
     def test_params
-      params.require(:test).permit(:name, :questions_count, :pass_count)
+      params.require(:test).permit(:name, :questions_count, :pass_count, :test_group_id)
     end
 end

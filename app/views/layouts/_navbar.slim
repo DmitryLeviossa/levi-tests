@@ -21,6 +21,8 @@ nav.navbar.navbar--default
             li.navbar--item
               = link_to('Members', members_path, class: "navbar--link #{is_nav_active('members')}") 
             li.navbar--item
+              = link_to('Test groups', test_groups_path, class: "navbar--link #{is_nav_active('test_groups')}") 
+            li.navbar--item
               = link_to('Tests', tests_path, class: "navbar--link #{is_nav_active('tests')}")
               
         ul.nav.navbar--nav.navbar--right

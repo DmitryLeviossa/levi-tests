@@ -18,6 +18,7 @@ class Company < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :test_groups
   has_many :tests
   has_many :members
   has_many :member_tests, through: :members
