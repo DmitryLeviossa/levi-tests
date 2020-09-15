@@ -1,5 +1,5 @@
 class TestGroupsController < ApplicationController
-  before_action :set_test_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_test_group, only: %i[show edit update destroy]
 
   def index
     @test_groups = current_company.test_groups
@@ -32,7 +32,7 @@ class TestGroupsController < ApplicationController
 
   def destroy
     @test_group.destroy
-    redirect_to test_groups_url, notice: 'Test group was successfully destroyed.'
+    redirect_to test_groups_path, notice: 'Test group was successfully destroyed.'
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_140139) do
+ActiveRecord::Schema.define(version: 2020_09_14_142535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_09_11_140139) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_test_groups_on_company_id"
+    t.index ["name", "company_id"], name: "index_test_groups_on_name_and_company_id", unique: true
   end
 
   create_table "tests", force: :cascade do |t|
@@ -101,7 +102,11 @@ ActiveRecord::Schema.define(version: 2020_09_11_140139) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "test_group_id", null: false
+    t.integer "value", default: 0
+    t.integer "module", default: 1
+    t.text "description"
     t.index ["company_id"], name: "index_tests_on_company_id"
+    t.index ["module", "test_group_id"], name: "index_tests_on_module_and_test_group_id", unique: true
     t.index ["test_group_id"], name: "index_tests_on_test_group_id"
   end
 
