@@ -20,7 +20,7 @@
             td = link_to member.name, member, class: 'link'
             td = member.email
             td = member.member_tests.last&.test&.name
-            td 0
+            td = member.member_tests.where(status: :passed).count
             td = member.created_at.strftime('%F')
             td.table-actions
               = link_to 'edit', edit_member_path(member), class: 'btn btn--white btn--inline'
