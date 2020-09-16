@@ -27,6 +27,7 @@ nav.navbar.navbar--default
               
         ul.nav.navbar--nav.navbar--right
           - if company_signed_in?
+            li.navbar--item = link_to('Matrix', matrixes_path, class: "navbar--link")
             li.navbar--item = link_to('Logout', destroy_company_session_path, method: :delete, class: "navbar--link")
           - else
             - if controller_name != 'sessions'

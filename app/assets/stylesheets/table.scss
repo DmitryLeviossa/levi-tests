@@ -67,6 +67,17 @@
         padding: 5px 15px;
       }
 
+      &.table-matrix {
+        border-collapse: collapse;
+        & th, td {
+          text-align: center;
+          border: 1px solid darkgray;
+        }
+        & th {
+          background: #D9D9D9;
+        }
+      }
+
       // column size adjustmnets for different pages
       &.table--test th {
         width: 15%;
@@ -85,6 +96,9 @@
           width: 90px;
         }
         width: calc(100%/5)
+      }
+      &.table--members th {
+        width: calc(100%/6)
       }
       td {
         padding: 5px;

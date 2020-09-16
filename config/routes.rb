@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :companies
 
+  resources :matrixes, only: [:index]
   resources :test_groups
   resources :tests
   resources :members
