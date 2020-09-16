@@ -11,6 +11,8 @@
 #  updated_at      :datetime         not null
 #
 class Test < ApplicationRecord
+  belongs_to :company
+  belongs_to :test_group
   has_many :questions, dependent: :destroy
   has_many :member_tests, dependent: :destroy
 

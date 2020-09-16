@@ -4,6 +4,19 @@
       = link_to 'Edit', edit_test_path(@test), class: 'btn btn--black', id: 'edit-btn'
       .show--content--title
         h1 = @test.name
+      .table-outer
+        table.table.table-striped.table--test
+          thead
+            tr
+              th Module
+              th Value
+              th Description
+
+          tbody
+            tr
+              td = @test.module
+              td = @test.value
+              td = @test.description || '---'
       h3 New question
       = render 'questions/form', question: @new_question, is_edit: false
 

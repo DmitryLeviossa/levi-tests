@@ -1,0 +1,22 @@
+= render "layouts/table" do
+  h1 Test Groups
+  = link_to 'New Test Group', new_test_group_path, class: 'btn btn--primary right'
+
+  .table-outer
+    table.table.table-striped.table--test-groups
+      thead
+        tr
+          th Name
+          th Created at
+          th.table-column-actions2 Actions
+
+      tbody
+        - @test_groups.each do |test_group|
+          tr
+            td = link_to test_group.name, test_group, class: 'link'
+            td = test_group.created_at.strftime('%F')
+            td.table-actions
+              = link_to 'Edit', edit_test_group_path(test_group), class: 'btn btn--white btn--inline'
+              = link_to 'Destroy', test_group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
+
+  <br>

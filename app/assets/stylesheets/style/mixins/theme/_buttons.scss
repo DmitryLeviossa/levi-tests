@@ -19,7 +19,7 @@
 }
 
 @mixin base-button() {
-  padding: 8px !important;
+  padding: 8px;
   border-radius: 10px;
   border: 1px solid $button;
   box-sizing: border-box;

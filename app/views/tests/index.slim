@@ -3,16 +3,13 @@
   = link_to 'New Test', new_test_path, class: 'btn btn--primary right'
 
   .table-outer
-    table.table.table-striped
-      col style="width:15%"
-      col style="width:15%"
-      col style="width:15%"
-      col style="width:15%"
-      col style="width:15%"
-      col style="width:15%"
+    table.table.table-striped.table--tests
       thead
         tr
+          th Test group
           th Name
+          th Module
+          th Value
           th All questions count
           th Questions count
           th Pass count
@@ -22,7 +19,10 @@
       tbody
         - @tests.each do |test|
           tr
+            td = link_to test.test_group.name, test.test_group, class: 'link'
             td = link_to test.name, test, class: 'link'
+            td = test.module
+            td = test.value
             td = test.questions.count
             td = test.questions_count
             td = test.pass_count
