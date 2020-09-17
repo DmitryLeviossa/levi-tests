@@ -3,9 +3,9 @@ h1 Matrix
   - columns_count = current_company.tests.maximum(:module)
   table.table.table-striped.table-matrix
     thead
-      col width="10%"
+      col width="18%"
       - columns_count.times do |col|
-        col width="#{(90/columns_count).ceil}%"
+        col width="#{(82/columns_count).ceil}%"
       tr
         th Name
         - columns_count.times do |col|
@@ -22,6 +22,8 @@ h1 Matrix
             - is_passed = memeber_test&.passed?
             td class=([is_active ? 'test--started' : nil, is_passed ? 'test--passed' : nil].compact.join(' '))  
               - if test.present?
-                div = link_to test.name, test, class: 'link'
+                div = link_to test.name, test, class: ['link', is_passed ? 'link--white' : nil].compact.join(' ')
                 div = test.value
                 div = test.description
+                - if is_passed
+                  = image_tag('test_check_mark.svg', class: 'pass-triangle')
