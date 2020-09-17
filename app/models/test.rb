@@ -17,7 +17,8 @@ class Test < ApplicationRecord
   has_many :member_tests, dependent: :destroy
 
   validates :name, :questions_count, :pass_count, presence: true
-  validates :name, uniqueness: { scope: :company_id }
+  validates :name, uniqueness: { scope: %i[company_id test_group_id] }
+  validates :module, uniqueness: { scope: :test_group_id }
   validate :counters
 
   private
