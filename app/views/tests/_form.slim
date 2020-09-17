@@ -1,7 +1,7 @@
 = semantic_form_for test do |f| 
   = f.inputs do
     = f.input :name
-    = f.input :test_group
+    = f.input :test_group, as: :select, collection: current_company.test_groups.pluck(:name, :id)
     = f.input :module
     = f.input :questions_count
     = f.input :pass_count

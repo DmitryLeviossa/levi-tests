@@ -1,12 +1,11 @@
 = render "layouts/table" do
   .title
-    h1
-      = @member.name
+    h1 = @member.name
     h2 Tests
 
   = link_to 'Edit', edit_member_path(@member), class: 'btn btn--primary right'
   .table-outer
-    table.table.table-striped
+    table.table.table-striped.table-memeber
       thead
         tr
           th Test
@@ -28,3 +27,4 @@
                 = link_to 'Regenerate', regenerate_member_test_path(member_test), class: 'btn btn--black btn--inline'
                 = link_to 'Edit', edit_member_test_path(member_test), class: 'btn btn--black btn--inline'
                 = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
+  = render partial: "layouts/matrix", locals: { member: @member }
