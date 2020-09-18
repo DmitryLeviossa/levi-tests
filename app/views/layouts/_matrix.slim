@@ -1,4 +1,3 @@
-h1 Matrix
 .table-outer
   - columns_count = current_company.tests.maximum(:module)
   table.table.table-striped.table-matrix
@@ -22,8 +21,8 @@ h1 Matrix
             - is_passed = memeber_test&.passed?
             td class=([is_active ? 'test--started' : nil, is_passed ? 'test--passed' : nil].compact.join(' '))  
               - if test.present?
-                div = link_to test.name, test, class: ['link', is_passed ? 'link--white' : nil].compact.join(' ')
-                div = test.value
+                div = link_to test.name, test, class: ['test-title link', is_passed ? 'link--white' : nil].compact.join(' ')
+                .test-title = test.value
                 div = test.description
                 - if is_passed
                   = image_tag('test_check_mark.svg', class: 'pass-triangle')

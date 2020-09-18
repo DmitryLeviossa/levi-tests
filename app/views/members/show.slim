@@ -1,30 +1,7 @@
 = render "layouts/table" do
   .title
     h1 = @member.name
-    h2 Tests
 
   = link_to 'Edit', edit_member_path(@member), class: 'btn btn--primary right'
-  .table-outer
-    table.table.table-striped.table-memeber
-      thead
-        tr
-          th Test
-          th Status
-          th Created at
-          th.table-actions Actions
-
-      tbody
-        - @member.member_tests.each do |member_test|
-          tr
-            td = link_to member_test.test.name, member_test.test, class: "link"
-            td = member_test.status.capitalize
-            td = member_test.created_at.strftime('%F')
-            td.table-actions
-              = link_to 'Show', member_test, class: 'btn btn--black btn--inline'
-              - if member_test.started?
-                = link_to 'Print', member_test_path(member_test, format: :pdf), target: "_blank", class: 'btn btn--black btn--inline'
-                = link_to 'Pass', pass_form_member_test_path(member_test), class: 'btn btn--black btn--inline'
-                = link_to 'Regenerate', regenerate_member_test_path(member_test), class: 'btn btn--black btn--inline'
-                = link_to 'Edit', edit_member_test_path(member_test), class: 'btn btn--black btn--inline'
-                = link_to 'Destroy', member_test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
+.table-container
   = render partial: "layouts/matrix", locals: { member: @member }
