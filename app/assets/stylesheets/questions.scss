@@ -8,7 +8,12 @@
   #notice {
     text-align: center;
   }
+  &-actions {
+    display: flex;
+    margin-left: auto;
+  }
 }
+
 .show, .edit-question {
   @include view-page();
   .btn {

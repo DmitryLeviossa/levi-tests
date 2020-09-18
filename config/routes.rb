@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'member_tests#index'
 
+  get '/user_matrix', to: 'application#user_matrix'
+
   devise_for :companies
 
   resources :matrixes, only: [:index]

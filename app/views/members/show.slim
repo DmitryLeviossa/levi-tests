@@ -1,7 +1,8 @@
 = render "layouts/table" do
   .title
     h1 = @member.name
-
-  = link_to 'Edit', edit_member_path(@member), class: 'btn btn--primary right'
+  .show-page-actions
+    = link_to 'Public page', '', class: 'btn btn--primary'
+    = link_to 'Edit', edit_member_path(@member), class: 'btn btn--primary'
 .table-container
   = render partial: "layouts/matrix", locals: { member: @member }

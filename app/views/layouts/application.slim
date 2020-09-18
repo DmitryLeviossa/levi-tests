@@ -12,7 +12,8 @@ html
 
   body
     .wrapper
-      = render 'layouts/navbar'
+      = render 'layouts/navbar' if action_name != 'user_matrix'
       = yield
-      .push
-    = render 'layouts/footer'
+      - if action_name != 'user_matrix'
+        .push
+      = render 'layouts/footer' 
