@@ -88,6 +88,7 @@
           height: 300px;
         }
         & tr > td:first-child {
+          font-size: 18px;
           font-weight: 700;
         }
         .test--started {
@@ -97,6 +98,9 @@
           position: relative;
           background-color: #2A2D33;
           color: white;
+        }
+        .test-title {
+          font-size: 18px;
         }
         .pass-triangle {
           position: absolute;

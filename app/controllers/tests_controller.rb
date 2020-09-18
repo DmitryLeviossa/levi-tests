@@ -2,7 +2,7 @@ class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tests = current_company.tests
+    @tests = current_company.tests.order(:test_group_id)
   end
 
   def show
