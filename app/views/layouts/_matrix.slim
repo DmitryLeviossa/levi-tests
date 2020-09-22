@@ -1,5 +1,5 @@
 .table-outer
-  - columns_count = current_company.tests.maximum(:module)
+  - columns_count = current_company.tests.maximum(:module) || 0
   table.table.table-striped.table-matrix
     thead
       col width="18%"
@@ -13,7 +13,7 @@
     tbody
       - current_company.test_groups.each do |test_group|
         tr
-          td = link_to test_group.name, test_group, class: 'link'
+          td = link_to_if company_signed_in?, test_group.name, test_group, class: 'link'
           - columns_count.times do |index|
             - test = test_group.tests.find_by(module: index + 1)
             - memeber_test = test.member_tests.find_by(member: member) if test.present? && defined? member
@@ -21,7 +21,7 @@
             - is_passed = memeber_test&.passed?
             td class=([is_active ? 'test--started' : nil, is_passed ? 'test--passed' : nil].compact.join(' '))  
               - if test.present?
-                div = link_to test.name, test, class: ['test-title link', is_passed ? 'link--white' : nil].compact.join(' ')
+                .test-title = link_to_if company_signed_in?, test.name, test, class: ['link', is_passed ? 'link--white' : nil].compact.join(' ')
                 .test-title = test.value
                 div = test.description
                 - if is_passed

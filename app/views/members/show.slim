@@ -2,7 +2,7 @@
   .title
     h1 = @member.name
   .show-page-actions
-    = link_to 'Public page', '', class: 'btn btn--primary'
+    = link_to 'Public page', user_matrix_url(token: @member.matrix_token), class: 'btn btn--primary'
     = link_to 'Edit', edit_member_path(@member), class: 'btn btn--primary'
 .table-container
   = render partial: "layouts/matrix", locals: { member: @member }

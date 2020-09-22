@@ -15,7 +15,7 @@
           tr
             td = link_to test_group.name, test_group, class: 'link'
             td = test_group.created_at.strftime('%F')
-            td.table-actions
+            td
               = link_to 'Edit', edit_test_group_path(test_group), class: 'btn btn--white btn--inline'
               = link_to 'Destroy', test_group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
 

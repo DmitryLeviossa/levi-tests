@@ -130,7 +130,10 @@
         width: calc(100%/5);
       }
       &.table--members th {
-        width: calc(100%/10);
+        width: calc((100% - 300px) / 5);
+        &:last-child {
+          width: 300px;
+        }
       }
       &.table-memeber th {
         width: calc(100%/4);
