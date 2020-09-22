@@ -22,8 +22,9 @@
             td = member.member_tests.last&.test&.name
             td = member.member_tests.where(status: :passed).count
             td = member.created_at.strftime('%F')
-            td.table-actions
+            td
               = link_to 'edit', edit_member_path(member), class: 'btn btn--white btn--inline'
               = link_to 'delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
+              = link_to 'public page', user_matrix_url(token: member.matrix_token), class: 'btn btn--black btn--inline'
   <br>
 

@@ -16,4 +16,9 @@ class Member < ApplicationRecord
 
   validates :name, :email, presence: true
   validates :name, uniqueness: { scope: :company_id }
+
+  def matrix_token
+    payload = { member_id: id, company_id: company_id }
+    JWT.encode payload, nil, 'none'
+  end
 end
