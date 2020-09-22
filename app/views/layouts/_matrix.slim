@@ -1,5 +1,5 @@
 .table-outer
-  - columns_count = current_company.tests.maximum(:module) || 0
+  - columns_count = current_company.tests.maximum(:module).to_i
   table.table.table-striped.table-matrix
     thead
       col width="18%"
