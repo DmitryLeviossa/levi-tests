@@ -1,3 +1,6 @@
 .table-container
-  h1 = @member.name
+  h1
+    = @member.name
+    .value-subtitle
+      = " (#{Test.joins(member_tests: :member).where('member_tests.status = ? AND member_tests.member_id = ?', 'passed', @member.id).sum(:value)})"
   = render partial: "layouts/matrix", locals: { member: @member, current_company: @company }
