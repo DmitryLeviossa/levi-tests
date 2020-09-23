@@ -1,7 +1,8 @@
 $(document).ready(function() {
+
+	let timeoutId;
 	$(document).on('click', '.public-page-url-btn', function (e) {
 		const notice = $('#notice');
-		let timeoutId;
 
 		if (navigator.clipboard) {
 			navigator.clipboard.writeText(e.target.dataset['link'])
