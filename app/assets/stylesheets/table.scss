@@ -123,6 +123,9 @@
       &.table--test-groups th:last-child {
         width: 15%;
       }
+      &.table--test-group th {
+        width: calc(100% / 5);
+      }
       &.table--member-tests th {
         &:first-child {
           width: 90px;
