@@ -29,6 +29,7 @@
             td = member_test.status.capitalize
             td = member_test.created_at.strftime('%F')
             td
+              = link_to 'Show', member_test_path(member_test), target: '_blank', class: 'btn btn--black btn--inline'
               = link_to 'Print', member_test_path(member_test, format: :pdf), target: '_blank', class: 'btn btn--black btn--inline'
               = link_to 'Pass', pass_form_member_test_path(member_test), class: 'btn btn--black btn--inline'
               - unless member_test.started?
