@@ -3,6 +3,7 @@
     h1 = @member.name
   .show-page-actions
     .btn.btn--primary.public-page-url-btn data-link="#{user_matrix_url(token: @member.matrix_token)}" Public page
-    = link_to 'Edit', edit_member_path(@member), class: 'btn btn--primary'
+    = link_to 'Edit', edit_member_path(@member), class: 'btn btn--black'
+    = link_to 'Destroy', @member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
 .table-container
   = render partial: "layouts/matrix", locals: { member: @member }
