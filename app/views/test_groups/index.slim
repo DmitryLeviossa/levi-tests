@@ -7,6 +7,7 @@
       thead
         tr
           th Name
+          th Position
           th Created at
           th.table-column-actions2 Actions
 
@@ -14,6 +15,7 @@
         - @test_groups.each do |test_group|
           tr
             td = link_to test_group.name, test_group, class: 'link'
+            td = test_group.position
             td = test_group.created_at.strftime('%F')
             td
               = link_to 'Edit', edit_test_group_path(test_group), class: 'btn btn--white btn--inline'

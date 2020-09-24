@@ -2,7 +2,7 @@ class TestGroupsController < ApplicationController
   before_action :set_test_group, only: %i[show edit update destroy]
 
   def index
-    @test_groups = current_company.test_groups
+    @test_groups = current_company.test_groups.order(:position)
   end
   
   def show; end
@@ -42,6 +42,6 @@ class TestGroupsController < ApplicationController
     end
 
     def test_group_params
-      params.require(:test_group).permit(:name)
+      params.require(:test_group).permit(:name, :position)
     end
 end

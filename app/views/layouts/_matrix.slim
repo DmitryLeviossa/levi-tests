@@ -11,7 +11,7 @@
           th = "Module #{col + 1}"
 
     tbody
-      - current_company.test_groups.each do |test_group|
+      - current_company.test_groups.order(:position).each do |test_group|
         tr
           td = link_to_if company_signed_in?, test_group.name, test_group, class: 'link'
           - columns_count.times do |index|
