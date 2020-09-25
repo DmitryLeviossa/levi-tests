@@ -2,5 +2,5 @@
   h1
     = @member.name
     .value-subtitle
-      = " (#{@member.member_tests.joins(:test).sum('tests.value').to_i})"
+      = " (#{@member.member_tests.where(status: :passed).joins(:test).sum('tests.value').to_i})"
   = render partial: "layouts/matrix", locals: { member: @member, current_company: @company }
