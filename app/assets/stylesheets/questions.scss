@@ -160,6 +160,7 @@
         .question, .text {
           font-weight: 500;
           white-space: pre-wrap;
+          overflow-wrap: anywhere;
         }
         .question {
           margin-bottom: 30px;
