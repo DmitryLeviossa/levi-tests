@@ -11,16 +11,18 @@
           th Email
           th Current test
           th Passed tests
+          th Score
           th Created at
-          th.table-column-actions2 Actions
+          th Actions
 
       tbody
         - @members.each do |member|
           tr
             td = link_to member.name, member, class: 'link'
             td = member.email
-            td = member.member_tests.last&.test&.name
+            td = "#{member.member_tests.last&.test&.test_group&.name} (#{member.member_tests.last&.test&.name})"
             td = member.member_tests.where(status: :passed).count
+            td = member.member_tests.where(status: :passed).joins(:test).sum('tests.value').to_i
             td = member.created_at.strftime('%F')
             td
               = link_to 'edit', edit_member_path(member), class: 'btn btn--white btn--inline'

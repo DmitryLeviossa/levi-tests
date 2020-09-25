@@ -124,15 +124,15 @@
         width: 15%;
       }
       &.table--test-group th {
-        width: calc(100% / 5);
+        width: calc(100%/5);
       }
       &.table--member-tests th {
         width: calc(100%/5);
       }
       &.table--members th {
-        width: calc((100% - 300px) / 5);
+        width: calc(100%/8);
         &:last-child {
-          width: 300px;
+          width: auto;
         }
       }
       &.table-memeber th {
