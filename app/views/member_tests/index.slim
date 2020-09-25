@@ -25,7 +25,7 @@
         - @member_tests.each do |member_test|
           tr
             td = link_to member_test.member.name, member_test.member, class: 'link'
-            td = link_to member_test.test.name, member_test.test, class: 'link'
+            td = link_to "#{member_test.test.test_group.name} (#{member_test.test.name})", member_test.test, class: 'link'
             td = member_test.status.capitalize
             td = member_test.created_at.strftime('%F')
             td
