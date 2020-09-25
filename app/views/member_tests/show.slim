@@ -14,7 +14,7 @@
       .action--section
         .action--line
           = link_to "To #{@member_test.member.name}", member_path(@member_test.member), class: 'btn btn--secondary'
-          = link_to "To #{@member_test.test.name}", test_path(@member_test), class: 'btn btn--secondary'   
+          = link_to "To #{@member_test.test.test_group.name} (#{@member_test.test.name})", test_path(@member_test), class: 'btn btn--secondary'   
         .action--line
           = link_to 'Pass', pass_form_member_test_path(@member_test), class: 'btn btn--secondary'
           - unless @member_test.started?
