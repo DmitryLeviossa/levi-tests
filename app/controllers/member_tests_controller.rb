@@ -4,7 +4,7 @@ class MemberTestsController < ApplicationController
 
   def index
     @status_filter = MemberTest.statuses.keys.include?(params[:status]) ? params[:status] : 'passed'
-    @member_tests = current_company.member_tests.where(status: @status_filter)
+    @member_tests = current_company.member_tests.where(status: @status_filter).eager_load(:member, test: :test_group).order('members.name, test_groups.name, tests.module')
   end
 
   def show
