@@ -28,8 +28,8 @@
               td = @test.pass_count
               td = @test.created_at.strftime('%F')
       .show-page-description
-        h4 Description
-        p = @test.description || '---'
+        h3 Description
+        p = !@test.description.blank? ? @test.description : '---'
       h3 New question
       = render 'questions/form', question: @new_question, is_edit: false
 
