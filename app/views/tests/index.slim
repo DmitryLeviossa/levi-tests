@@ -1,34 +1,6 @@
 = render "layouts/table" do
-  h1 Tests
-  = link_to 'New Test', new_test_path, class: 'btn btn--primary right'
-
-  .table-outer
-    table.table.table-striped.table--tests
-      thead
-        tr
-          th Test group
-          th Name
-          th Module
-          th Value
-          th All questions count
-          th Questions count
-          th Pass count
-          th Created at
-          th Actions
-
-      tbody
-        - @tests.each do |test|
-          tr
-            td = link_to test.test_group.name, test.test_group, class: 'link'
-            td = link_to test.name, test, class: 'link'
-            td = test.module
-            td = test.value
-            td = test.questions.count
-            td = test.questions_count
-            td = test.pass_count
-            td = test.created_at.strftime('%F')
-            td
-              = link_to 'Edit', edit_test_path(test), class: 'btn btn--white btn--inline'
-              = link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
-
+  h1 Matrix
+  .show-page-actions
+    = link_to 'New Test', new_test_path, class: 'btn btn--primary'
+  = render partial: "layouts/matrix"
   <br>
