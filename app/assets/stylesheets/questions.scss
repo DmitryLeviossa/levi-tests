@@ -11,7 +11,11 @@
   &-actions {
     display: flex;
     margin-left: auto;
-  }
+ }
+ &-description {
+   overflow: auto;
+   margin-bottom: 20px;
+ }
 }
 
 .show, .edit-question {
@@ -43,6 +47,7 @@
     }
   }
   &--content--title {
+    margin-bottom: 20px;
     h1 {
       @media (min-width: 1500px) {
         width: 50%;

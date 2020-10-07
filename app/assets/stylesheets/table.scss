@@ -1,6 +1,17 @@
 @import "./style/mixins/theme/buttons";
 @import "./style/mixins/theme/link";
 
+.link {
+  @include link();
+  &--white {
+    color: white;
+  }
+}
+.btn {
+  @include base-button();
+  margin-left: 5px;
+}
+
 .table {
   &-container {
     display: flex;
@@ -25,16 +36,7 @@
       font-size: 60px;
       margin: 15px 0;
     }
-    .link {
-      @include link();
-      &--white {
-        color: white;
-      }
-    }
-    .btn {
-      @include base-button();
-      margin-left: 5px;
-    }
+    
   }
   &-title-container {
     width: 100%;
@@ -111,10 +113,10 @@
       }
 
       // column size adjustmnets for different pages
-      &.table--test th {
-        width: 15%;
-        &:last-child {
-          width: auto;
+      &.table--test {
+        table-layout: fixed;
+        & th {
+          width: calc(100% / 6);
         }
       }
       &.table--tests th {
