@@ -20,7 +20,8 @@
           tr
             td = link_to member.name, member, class: 'link'
             td = member.email
-            td = "#{member.member_tests.last&.test&.test_group&.name} (#{member.member_tests.last&.test&.name})"
+            - current_test = member.member_tests.where.not(status: :passed).last
+            td = "#{current_test&.test&.test_group&.name} (#{current_test&.test&.name})"
             td = member.member_tests.where(status: :passed).count
             td = member.member_tests.where(status: :passed).joins(:test).sum('tests.value').to_i
             td = member.created_at.strftime('%F')
