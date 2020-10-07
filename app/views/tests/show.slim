@@ -4,19 +4,32 @@
       = link_to 'Edit', edit_test_path(@test), class: 'btn btn--black', id: 'edit-btn'
       .show--content--title
         h1 = @test.name
+        
       .table-outer
         table.table.table-striped.table--test
           thead
             tr
+              th Test group
               th Module
               th Value
-              th Description
+              
+              th All questions count
+              th Questions count
+              th Pass count
+              th Created at
 
           tbody
             tr
+              td = link_to @test.test_group.name, @test.test_group, class: 'link'
               td = @test.module
               td = @test.value
-              td = @test.description || '---'
+              td = @test.questions.count
+              td = @test.questions_count
+              td = @test.pass_count
+              td = @test.created_at.strftime('%F')
+      .show-page-description
+        h4 Description
+        p = @test.description || '---'
       h3 New question
       = render 'questions/form', question: @new_question, is_edit: false
 
