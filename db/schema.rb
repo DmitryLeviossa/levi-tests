@@ -83,9 +83,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_140335) do
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "member_test_group_id"
     t.index ["company_id"], name: "index_members_on_company_id"
-    t.index ["member_test_group_id"], name: "index_members_on_member_test_group_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -102,9 +100,7 @@ ActiveRecord::Schema.define(version: 2020_10_07_140335) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position", default: 0
-    t.bigint "member_test_group_id"
     t.index ["company_id"], name: "index_test_groups_on_company_id"
-    t.index ["member_test_group_id"], name: "index_test_groups_on_member_test_group_id"
     t.index ["name", "company_id"], name: "index_test_groups_on_name_and_company_id", unique: true
   end
 
@@ -135,10 +131,8 @@ ActiveRecord::Schema.define(version: 2020_10_07_140335) do
   add_foreign_key "member_tests", "members"
   add_foreign_key "member_tests", "tests"
   add_foreign_key "members", "companies"
-  add_foreign_key "members", "member_test_groups"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_groups", "companies"
-  add_foreign_key "test_groups", "member_test_groups"
   add_foreign_key "tests", "companies"
   add_foreign_key "tests", "test_groups"
 end

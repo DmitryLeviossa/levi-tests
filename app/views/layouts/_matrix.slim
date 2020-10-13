@@ -1,5 +1,5 @@
 .table-outer
-  - columns_count = tests.maximum(:module).to_i
+  - columns_count = tests_container.tests.maximum(:module).to_i
   table.table.table-striped.table-matrix
     thead
       col width="18%"
@@ -11,7 +11,7 @@
           th = "Module #{col + 1}"
 
     tbody
-      - test_groups.order(:position).each do |test_group|
+      - tests_container.test_groups.order(:position).each do |test_group|
         tr
           td = link_to_if company_signed_in?, test_group.name, test_group, class: 'link'
           - columns_count.times do |index|

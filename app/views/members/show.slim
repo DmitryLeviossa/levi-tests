@@ -6,4 +6,4 @@
     = link_to 'Edit', edit_member_path(@member), class: 'btn btn--black'
     = link_to 'Destroy', @member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
 .table-container
-  = render partial: "layouts/matrix", locals: { member: @member, tests: @member.tests, test_groups: @member.test_groups  }
+  = render partial: "layouts/matrix", locals: { member: @member, tests_container: @member  }

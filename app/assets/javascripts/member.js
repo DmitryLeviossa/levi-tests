@@ -1,3 +1,5 @@
 $(document).ready(function () {
-  $('#member_test_group_ids').select2();
+  $(document).on('turbolinks:load', function() {
+    $('#member_test_group_ids').select2();
+  });
 });
