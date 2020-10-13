@@ -3,6 +3,12 @@
 @import "./style/mixins/theme/buttons";
 @import "./style/mixins/theme/radioBtn";
 
+// select2 library border override
+.select2-container--default .select2-selection--multiple {
+  border: 1px solid #959699;
+  border-radius: 9px;
+}
+
 .new-form, .pass-form  {
   @include view-page();
   .btn {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_24_120941) do
+ActiveRecord::Schema.define(version: 2020_10_07_140335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2020_09_24_120941) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "member_test_groups", force: :cascade do |t|
+    t.bigint "member_id"
+    t.bigint "test_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_member_test_groups_on_member_id"
+    t.index ["test_group_id"], name: "index_member_test_groups_on_test_group_id"
   end
 
   create_table "member_test_question_answers", force: :cascade do |t|
@@ -74,7 +83,9 @@ ActiveRecord::Schema.define(version: 2020_09_24_120941) do
     t.bigint "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "member_test_group_id"
     t.index ["company_id"], name: "index_members_on_company_id"
+    t.index ["member_test_group_id"], name: "index_members_on_member_test_group_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -91,7 +102,9 @@ ActiveRecord::Schema.define(version: 2020_09_24_120941) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "position", default: 0
+    t.bigint "member_test_group_id"
     t.index ["company_id"], name: "index_test_groups_on_company_id"
+    t.index ["member_test_group_id"], name: "index_test_groups_on_member_test_group_id"
     t.index ["name", "company_id"], name: "index_test_groups_on_name_and_company_id", unique: true
   end
 
@@ -112,6 +125,8 @@ ActiveRecord::Schema.define(version: 2020_09_24_120941) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "member_test_groups", "members"
+  add_foreign_key "member_test_groups", "test_groups"
   add_foreign_key "member_test_question_answers", "answers"
   add_foreign_key "member_test_question_answers", "member_test_questions"
   add_foreign_key "member_test_questions", "answers"
@@ -120,8 +135,10 @@ ActiveRecord::Schema.define(version: 2020_09_24_120941) do
   add_foreign_key "member_tests", "members"
   add_foreign_key "member_tests", "tests"
   add_foreign_key "members", "companies"
+  add_foreign_key "members", "member_test_groups"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_groups", "companies"
+  add_foreign_key "test_groups", "member_test_groups"
   add_foreign_key "tests", "companies"
   add_foreign_key "tests", "test_groups"
 end
