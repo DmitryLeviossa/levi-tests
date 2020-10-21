@@ -1,7 +1,6 @@
 = semantic_form_for member_group do |f| 
   = f.inputs do
     = f.input :name
-    = f.input :members, as: :select, collection: current_company.members.pluck(:name, :id), input_html: { class: 'mutli-select' }, wrapper_html: { class: 'multi-select--container' }
     = f.input :test_groups, as: :select, collection: current_company.test_groups.pluck(:name, :id), input_html: { class: 'mutli-select' }, wrapper_html: { class: 'multi-select--container' }
   = f.actions
     = f.action :cancel, as: :link, button_html: { class: 'btn btn--secondary' }

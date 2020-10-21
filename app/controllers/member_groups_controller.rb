@@ -1,5 +1,5 @@
 class MemberGroupsController < ApplicationController
-  before_action :set_member_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_member_group, only: %i[show edit update destroy]
 
   def index
     @member_groups = current_company.member_groups
@@ -41,6 +41,6 @@ class MemberGroupsController < ApplicationController
     end
 
     def member_group_params
-      params.require(:member_group).permit(:name, member_ids: [], test_group_ids: [])
+      params.require(:member_group).permit(:name, test_group_ids: [])
     end
 end

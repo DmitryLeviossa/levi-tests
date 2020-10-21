@@ -54,15 +54,6 @@ ActiveRecord::Schema.define(version: 2020_10_15_130930) do
     t.index ["company_id"], name: "index_member_groups_on_company_id"
   end
 
-  create_table "member_test_groups", force: :cascade do |t|
-    t.bigint "member_id"
-    t.bigint "test_group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["member_id"], name: "index_member_test_groups_on_member_id"
-    t.index ["test_group_id"], name: "index_member_test_groups_on_test_group_id"
-  end
-
   create_table "member_test_question_answers", force: :cascade do |t|
     t.bigint "member_test_question_id"
     t.bigint "answer_id"
@@ -143,8 +134,6 @@ ActiveRecord::Schema.define(version: 2020_10_15_130930) do
   add_foreign_key "member_group_test_groups", "member_groups"
   add_foreign_key "member_group_test_groups", "test_groups"
   add_foreign_key "member_groups", "companies"
-  add_foreign_key "member_test_groups", "members"
-  add_foreign_key "member_test_groups", "test_groups"
   add_foreign_key "member_test_question_answers", "answers"
   add_foreign_key "member_test_question_answers", "member_test_questions"
   add_foreign_key "member_test_questions", "answers"
