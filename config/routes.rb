@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :test_groups
   resources :tests
   resources :members
+  resources :member_groups
   resources :member_tests do
     member do
       get :pass_form

@@ -85,29 +85,36 @@
             outline: none;
           }
         }
-        li {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          margin: 0 !important;
-          padding: 0 !important;
-          label {
-            margin: 13px 0 13px 30px !important;
-            width: 100% !important;
+        li.input {
+          margin: 0;
+          padding: 0;
+          & input {
+            width: 100%;
+          }
+          & .label {
+            margin: 13px 0 13px 30px;
+            width: 100%;
             abbr {
               text-decoration: none;
             }
           }
+        }
+        li {
+          position: relative;
           input, select {
             @include input();
           }
           input[type=radio], input[type=checkbox] {
             @include radio();
           }
-          &.select.input::after {
+          & select.mutli-select {
+            // hide mulit select to remove flickering with javascript multi-select library
+            display: none;
+          }
+          &.select.input:not(.multi-select--container)::after {
             content: '';
             position: absolute;
-            height: 40px;
+            height: 39px;
             width: 12%;
             right: 0;
             bottom: 0;

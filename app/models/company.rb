@@ -22,6 +22,7 @@ class Company < ApplicationRecord
   has_many :tests
   has_many :members
   has_many :member_tests, through: :members
+  has_many :member_groups
 
   validates :name, uniqueness: true
 end

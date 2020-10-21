@@ -1,6 +1,6 @@
 class MemberTestsController < ApplicationController
-  before_action :set_member_test, only: [:show, :edit, :update, :destroy, :pass_form, :pass, :regenerate]
-  before_action :validate_regeneration, only: [:regenerate]
+  before_action :set_member_test, only: %i[show edit update destroy pass_form pass regenerate]
+  before_action :validate_regeneration, only: %i[regenerate]
 
   def index
     @status_filter = MemberTest.statuses.keys.include?(params[:status]) ? params[:status] : 'draft'

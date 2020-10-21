@@ -8,4 +8,4 @@ nav.navbar
     = @member.name
     .value-subtitle
       = " (#{@member.member_tests.where(status: :passed).joins(:test).sum('tests.value').to_i})"
-  = render partial: "layouts/matrix", locals: { member: @member, current_company: @company }
+  = render partial: "layouts/matrix", locals: { member: @member, tests_container: @member }

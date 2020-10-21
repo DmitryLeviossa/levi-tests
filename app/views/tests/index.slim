@@ -2,5 +2,5 @@
   h1 Matrix
   .show-page-actions
     = link_to 'New Test', new_test_path, class: 'btn btn--primary'
-  = render partial: "layouts/matrix"
+  = render partial: "layouts/matrix", locals: { tests_container: current_company }
   <br>

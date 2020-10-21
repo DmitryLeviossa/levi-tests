@@ -1,0 +1,9 @@
+= render 'layouts/form' do
+  .new-form
+    .new-form--content
+      .new-form--content--title
+        h1 New member group
+      .new-form--content--form
+        = render 'form', member_group: @member_group
+        .new-form--content--form--image.test-img
+

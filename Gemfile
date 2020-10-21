@@ -67,3 +67,5 @@ gem "binding_of_caller"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'hamburgers'
+
+gem "select2-rails", "~> 4.0"

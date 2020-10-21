@@ -1,9 +1,9 @@
 @mixin input() {
   margin: 0 auto;
-  padding: 10px 0 10px 35px !important;
+  padding: 10px 0 10px 35px;
   border: 1px solid $border-line;
   border-radius: 9px;
-  width: 100% !important;
+  width: 100%;
   outline: none;
   box-sizing: border-box;
   -webkit-appearance: none;
@@ -12,7 +12,7 @@
   &:-webkit-autofill:hover, 
   &:-webkit-autofill:focus, 
   &:-webkit-autofill:active {
-    box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset;
   }
   &::placeholder {
     color: #cacbcc;
