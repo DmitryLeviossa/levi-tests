@@ -9,10 +9,10 @@
         tr
           th Name
           th Email
+          th Member Group
           th Current test
           th Passed tests
           th Score
-          th Created at
           th Actions
 
       tbody
@@ -20,11 +20,13 @@
           tr
             td = link_to member.name, member, class: 'link'
             td = member.email
+            td 
+              - if member.member_group_id?
+                = link_to member.member_group.name, member_group_path(member.member_group), class: 'link'
             - current_test = member.member_tests.where.not(status: :passed).last
             td = "#{current_test&.test&.test_group&.name} (#{current_test&.test&.name})"
             td = member.member_tests.where(status: :passed).count
             td = member.member_tests.where(status: :passed).joins(:test).sum('tests.value').to_i
-            td = member.created_at.strftime('%F')
             td
               = link_to 'edit', edit_member_path(member), class: 'btn btn--white btn--inline'
               = link_to 'delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
