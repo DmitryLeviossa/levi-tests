@@ -1,6 +1,7 @@
 = render "layouts/table" do
   .title
     h1 = @member.name
+    h4 = @member.member_group&.name || '--'
   .show-page-actions
     .btn.btn--primary.public-page-url-btn data-link="#{user_matrix_url(token: @member.matrix_token)}" Public page
     = link_to 'Edit', edit_member_path(@member), class: 'btn btn--black'

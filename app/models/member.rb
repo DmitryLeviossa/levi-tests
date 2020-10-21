@@ -11,7 +11,8 @@
 #
 class Member < ApplicationRecord
   belongs_to :company
-
+  belongs_to :member_group
+  
   has_many :member_tests, dependent: :destroy
   has_many :member_test_groups, dependent: :destroy
   has_many :test_groups, through: :member_test_groups
@@ -19,6 +20,7 @@ class Member < ApplicationRecord
 
   validates :name, :email, presence: true
   validates :name, uniqueness: { scope: :company_id }
+  validates :member_group_id, uniqueness: { scope: :company_id }
 
   def matrix_token
     payload = { member_id: id, company_id: company_id }

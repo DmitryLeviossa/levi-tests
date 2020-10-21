@@ -19,11 +19,14 @@ nav.navbar
             li.navbar--item
               = link_to('Member tests', member_tests_path, class: "navbar--link #{is_nav_active('member_tests')}")
             li.navbar--item
-              = link_to('Members', members_path, class: "navbar--link #{is_nav_active('members')}") 
+              = link_to('Members', members_path, class: "navbar--link #{is_nav_active('members')}")
+            li.navbar--item
+              = link_to('Member groups', member_groups_path, class: "navbar--link #{is_nav_active('member_groups')}")
             li.navbar--item
               = link_to('Test groups', test_groups_path, class: "navbar--link #{is_nav_active('test_groups')}") 
             li.navbar--item
               = link_to('Tests', tests_path, class: "navbar--link #{is_nav_active('tests')}")
+            
               
         ul.nav.navbar--nav.navbar--right
           - if company_signed_in?

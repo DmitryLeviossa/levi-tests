@@ -42,6 +42,6 @@ class TestGroupsController < ApplicationController
     end
 
     def test_group_params
-      params.require(:test_group).permit(:name, :position)
+      params.require(:test_group).permit(:name, :position, member_group_ids: [])
     end
 end

@@ -1,0 +1,14 @@
+= render "layouts/table" do
+  .title
+    h1
+      = @member_group.name
+  .show-page-actions
+    = link_to 'Edit', edit_member_group_path(@member_group), class: 'btn btn--primary'
+    = link_to 'Destroy', @member_group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
+  .table-outer
+    h4 Test Groups
+    - @member_group.test_groups.each do |test_group|
+      = link_to "#{test_group.name}, ", test_group_path(test_group), class: 'link'
+    h4 Members
+    - @member_group.members.each do |member|
+      = link_to "#{member.name}, ", member_path(member), class: 'link'
