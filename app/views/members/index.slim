@@ -12,13 +12,12 @@
           th Member Group
           th Current test
           th Passed tests
-          th Created at
+          th Score
           th Actions
 
       tbody
         - @members.each do |member|
           tr
-           
             td = link_to member.name, member, class: 'link'
             td = member.email
             td 
