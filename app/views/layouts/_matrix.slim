@@ -23,6 +23,7 @@
               - if test.present?
                 .test-title = link_to_if company_signed_in?, test.name, test, class: ['link', is_passed ? 'link--white' : nil].compact.join(' ')
                 .test-title = test.value
+                .test-title = "#{test.questions.count}/#{test.questions_count}/#{test.pass_count}"
                 div = test.description
                 - if is_passed
                   = image_tag('test_check_mark.svg', class: 'pass-triangle')
