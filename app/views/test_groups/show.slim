@@ -3,8 +3,9 @@
     h1
       = @test_group.name
     h2 Tests
-
-  = link_to 'Edit', edit_test_group_path(@test_group), class: 'btn btn--primary right'
+  .show-page-actions
+    = link_to 'New test', new_test_path(test_group_id: @test_group.id), class: 'btn btn--primary'
+    = link_to 'Edit', edit_test_group_path(@test_group), class: 'btn btn--black'
   .table-outer
     table.table.table-striped.table--test-group
       thead
