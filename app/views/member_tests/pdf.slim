@@ -1,7 +1,7 @@
 .pdf
   .pdf--header
     .test-name 
-      = @member_test.test.name
+      = "#{@member_test.test.test_group.name} (#{@member_test.test.name})"
     .member-name
       ' for member:
       = @member_test.member.name
