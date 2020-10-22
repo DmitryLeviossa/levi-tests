@@ -76,7 +76,8 @@
         border-top: 1px solid rgba(42, 45, 51, 0.25);
       }
 
-      &.table-matrix {
+      &.table--matrix {
+        table-layout: fixed;
         font-size: 15px;
         border-collapse: collapse;
         & th, td {
@@ -102,6 +103,10 @@
           color: white;
         }
         .test-title {
+          font-size: 20px;
+          font-weight: 600;
+        }
+        .test-subtitle {
           font-size: 18px;
         }
         .pass-triangle {
