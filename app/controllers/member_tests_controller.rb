@@ -28,7 +28,7 @@ class MemberTestsController < ApplicationController
   end
 
   def new
-    @member_test = MemberTest.new
+    @member_test = MemberTest.new(member_id: params[:member_id])
   end
 
   def create
