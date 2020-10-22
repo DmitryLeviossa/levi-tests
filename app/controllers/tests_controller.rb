@@ -11,7 +11,7 @@ class TestsController < ApplicationController
   end
 
   def new
-    @test = Test.new
+    @test = Test.new(test_group_id: params[:test_group_id])
   end
 
   def edit; end
