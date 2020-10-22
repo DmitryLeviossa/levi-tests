@@ -3,7 +3,7 @@
     .show--content
       = link_to 'Edit', edit_test_path(@test), class: 'btn btn--black', id: 'edit-btn'
       .show--content--title
-        h1 = @test.name
+        h1 = "#{@test.test_group.name} (#{@test.name})"
         
       .table-outer
         table.table.table-striped.table--test
