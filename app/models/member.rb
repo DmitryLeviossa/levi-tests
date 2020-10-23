@@ -10,6 +10,7 @@
 #  updated_at :datetime         not null
 #
 class Member < ApplicationRecord
+  has_secure_token
   belongs_to :company
   belongs_to :member_group
   
@@ -19,9 +20,4 @@ class Member < ApplicationRecord
 
   validates :name, :email, presence: true
   validates :name, uniqueness: { scope: :company_id }
-
-  def matrix_token
-    payload = { member_id: id, company_id: company_id }
-    JWT.encode payload, nil, 'none'
-  end
 end

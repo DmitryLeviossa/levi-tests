@@ -5,7 +5,7 @@
       .value-subtitle = " (#{@member.member_tests.where(status: :passed).joins(:test).sum('tests.value').to_i})"
     h4 = @member.member_group&.name || '--'
   .show-page-actions
-    .btn.btn--primary.public-page-url-btn data-link="#{user_matrix_url(token: @member.matrix_token)}" Public page
+    .btn.btn--primary.public-page-url-btn data-link="#{user_matrix_url(token: @member.token)}" Public page
     = link_to 'New member test', new_member_test_path(member_id: @member.id), class: 'btn btn--black'
     = link_to 'Edit', edit_member_path(@member), class: 'btn btn--black'
     = link_to 'Destroy', @member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
