@@ -1,6 +1,8 @@
 = render "layouts/table" do
   .title
-    h1 = @member.name
+    h1
+      = @member.name
+      .value-subtitle = " (#{@member.member_tests.where(status: :passed).joins(:test).sum('tests.value').to_i})"
     h4 = @member.member_group&.name || '--'
   .show-page-actions
     .btn.btn--primary.public-page-url-btn data-link="#{user_matrix_url(token: @member.matrix_token)}" Public page
