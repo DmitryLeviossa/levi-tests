@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
 
 
   def user_matrix
-    token = JWT.decode(params[:token], nil, false)[0]
-    @member = Member.find_by(company_id: token['company_id'], id: token['member_id'])
+    @member = Member.find_by(token: params[:token])
     @company = @member.company
   end
 

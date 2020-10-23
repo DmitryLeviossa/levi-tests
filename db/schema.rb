@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_130930) do
+ActiveRecord::Schema.define(version: 2020_10_23_130105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,8 +92,10 @@ ActiveRecord::Schema.define(version: 2020_10_15_130930) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "member_group_id"
+    t.string "token"
     t.index ["company_id"], name: "index_members_on_company_id"
     t.index ["member_group_id"], name: "index_members_on_member_group_id"
+    t.index ["token"], name: "index_members_on_token", unique: true
   end
 
   create_table "questions", force: :cascade do |t|
