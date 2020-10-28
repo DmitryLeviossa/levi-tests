@@ -18,7 +18,7 @@
           th Member
           th Test
           th Status
-          th Created at
+          th Last attempted at
           th.table-column-actions4 Actions 
 
       tbody
@@ -27,7 +27,7 @@
             td = link_to member_test.member.name, member_test.member, class: 'link'
             td = link_to "#{member_test.test.test_group.name} (#{member_test.test.name})", member_test.test, class: 'link'
             td = member_test.status.capitalize
-            td = member_test.created_at.strftime('%F')
+            td = member_test.attempts.last&.created_at&.strftime('%F') || 'Not attempted yet'
             td
               = link_to 'Show', member_test_path(member_test), class: 'btn btn--black btn--inline'
               = link_to 'Print', member_test_path(member_test, format: :pdf), target: '_blank', class: 'btn btn--black btn--inline'

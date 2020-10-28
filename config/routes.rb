@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :member_groups
   resources :member_tests do
     member do
+      get :history
       get :pass_form
       post :pass
       get :regenerate

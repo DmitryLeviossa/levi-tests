@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_23_130105) do
+ActiveRecord::Schema.define(version: 2020_10_28_121658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 2020_10_23_130105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "attempts", force: :cascade do |t|
+    t.integer "result", null: false
+    t.string "status"
+    t.bigint "member_test_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_test_id"], name: "index_attempts_on_member_test_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -133,6 +142,7 @@ ActiveRecord::Schema.define(version: 2020_10_23_130105) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "attempts", "member_tests"
   add_foreign_key "member_group_test_groups", "member_groups"
   add_foreign_key "member_group_test_groups", "test_groups"
   add_foreign_key "member_groups", "companies"

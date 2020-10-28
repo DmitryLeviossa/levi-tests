@@ -1,5 +1,5 @@
 class MemberTestsController < ApplicationController
-  before_action :set_member_test, only: %i[show edit update destroy pass_form pass regenerate]
+  before_action :set_member_test, only: %i[show edit update destroy pass_form pass regenerate history]
   before_action :validate_regeneration, only: %i[regenerate]
 
   def index
@@ -56,11 +56,14 @@ class MemberTestsController < ApplicationController
 
   def pass
     if @member_test.update(pass_params)
+      @member_test.attempts.new(result: @member_test.count_rights, status: @member_test.status).save
       redirect_to @member_test, notice: 'Member test was completed.'
     else
       render :pass_form
     end
   end
+
+  def history; end
 
   private
     def set_member_test
