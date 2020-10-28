@@ -1,0 +1,17 @@
+= render "layouts/table" do
+  h1 History
+
+  .table-outer
+    table.table.table-striped.table--test-groups
+      thead
+        tr
+          th Result
+          th Status
+          th Date
+      tbody
+        - @member_test.attempts.each do |attempt|
+          tr
+            td = attempt.result
+            td = attempt.status.capitalize
+            td = attempt.created_at.strftime('%F')
+  <br>

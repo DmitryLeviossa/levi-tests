@@ -14,6 +14,7 @@ class MemberTest < ApplicationRecord
   belongs_to :test
 
   has_many :member_test_questions, dependent: :destroy
+  has_many :attempts
 
   enum status: { draft: "draft", started: "started", passed: "passed", failed: "failed" }
 
