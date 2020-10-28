@@ -56,7 +56,7 @@ class MemberTestsController < ApplicationController
 
   def pass
     if @member_test.update(pass_params)
-      @member_test.attempts.new(result: @member_test.count_rights, status: @member_test.status).save
+      @member_test.attempts.create(result: @member_test.count_rights, status: @member_test.status)
       redirect_to @member_test, notice: 'Member test was completed.'
     else
       render :pass_form

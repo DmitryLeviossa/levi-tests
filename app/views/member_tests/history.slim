@@ -5,14 +5,13 @@
     table.table.table-striped.table--test-groups
       thead
         tr
-          th Status
           th Result
+          th Status
           th Date
       tbody
         - @member_test.attempts.each do |attempt|
           tr
-            td = attempt.status.capitalize
             td = attempt.result
+            td = attempt.status.capitalize
             td = attempt.created_at.strftime('%F')
-
   <br>
