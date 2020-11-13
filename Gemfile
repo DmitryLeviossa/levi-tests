@@ -68,3 +68,5 @@ gem 'wkhtmltopdf-binary'
 gem 'hamburgers'
 
 gem "select2-rails", "~> 4.0"
+
+gem "jwt", "~> 2.2"

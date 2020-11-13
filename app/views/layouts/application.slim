@@ -12,8 +12,8 @@ html
 
   body
     .wrapper
-      = render 'layouts/navbar' if action_name != 'user_matrix'
+      = render 'layouts/navbar' if action_name != 'user_matrix' && action_name != 'public_test'
       = yield
-      - if action_name != 'user_matrix'
+      - if action_name != 'user_matrix' && action_name != 'public_test'
         .push
       = render 'layouts/footer' 

@@ -32,5 +32,6 @@ module LeviTests
     config.generators do |g|
       g.template_engine :slim
    end
+   config.JWT_SECRET = SecureRandom.base64(32)
   end
 end

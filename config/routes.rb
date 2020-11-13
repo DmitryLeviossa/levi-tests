@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'member_tests#index'
 
   get '/user_matrix', to: 'application#user_matrix'
+  get '/public_test', to: 'application#public_test'
 
   devise_for :companies
 
