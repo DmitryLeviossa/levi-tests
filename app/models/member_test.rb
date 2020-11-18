@@ -27,7 +27,7 @@ class MemberTest < ApplicationRecord
   
   def get_temp_token
     payload = { id: self.id }
-    payload[:exp] = Time.now.to_i + 60 * 20 # 20 minutes
+    payload[:exp] = 20.minutes.from_now.to_i
     JWT.encode(payload, Rails.configuration.JWT_SECRET)
   end
 
