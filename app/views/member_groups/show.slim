@@ -7,8 +7,10 @@
     = link_to 'Destroy', @member_group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
   .table-outer
     h4 Test Groups
-    - @member_group.test_groups.each do |test_group|
+    - @member_group.test_groups.order(:position).each do |test_group|
       = link_to "#{test_group.name}, ", test_group_path(test_group), class: 'link'
     h4 Members
     - @member_group.members.each do |member|
       = link_to "#{member.name}, ", member_path(member), class: 'link'
+  h1 Matrix
+  = render partial: "layouts/matrix", locals: { tests_container: @member_group }
