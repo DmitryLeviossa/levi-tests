@@ -1,0 +1,6 @@
+nav.navbar
+    .navbar--content
+      .navbar--headers = @company.name
+    .navbar--border--container
+      .navbar--border--container--line
+= render partial: 'layouts/questions', locals: { include_actions: false }

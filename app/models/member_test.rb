@@ -25,6 +25,11 @@ class MemberTest < ApplicationRecord
 
   accepts_nested_attributes_for :member_test_questions, allow_destroy: true
   
+  def get_temp_token
+    payload = { id: self.id }
+    payload[:exp] = 20.minutes.from_now.to_i
+    JWT.encode(payload, Rails.configuration.JWT_SECRET)
+  end
 
   def regerenate!
     member_test_questions.destroy_all
