@@ -1,5 +1,5 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: %i[show edit update destroy]
+  before_action :set_test, only: %i[show edit update destroy close_test]
 
   def index
     @tests = current_company.tests.joins(:test_group).order('test_groups.name, tests.module')

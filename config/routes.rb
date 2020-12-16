@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   resources :test_groups
   resources :tests
-  resources :members
+  resources :members do
+    member do
+      get :close_test
+    end    
+  end
   resources :member_groups
   resources :member_tests do
     member do
