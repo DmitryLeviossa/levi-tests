@@ -36,10 +36,9 @@ class MembersController < ApplicationController
   end
 
   def close_test
-    test = current_company.tests.find(params[:test_id])
-    member_test = test.member_tests.find_by(member: @member)
+    member_test = @member.member_tests.find_by(test_id: params[:test_id])
     if member_test.nil?
-      test.member_tests.create(member: @member, status: :passed)
+      @member.member_tests.create(test_id: params[:test_id], status: :passed)
     else
       member_test.update(status: :passed)
     end
