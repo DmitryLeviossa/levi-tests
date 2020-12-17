@@ -94,11 +94,41 @@
           font-size: 18px;
           font-weight: 700;
         }
+        .test {
+          position: relative;
+          &:hover {
+            .close-triangle { // a hacky way to do css triangle
+              visibility: visible;
+              left: 0;
+              top: 0;
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 40px 40px 0 0;
+              border-color: lightgrey transparent transparent transparent;
+            }
+            .close-icon {
+              visibility: visible;
+              top: 4px;
+              left: 3px;
+              width: 18px;
+              height: 18px;
+            }
+            .close-link {
+              visibility: visible;
+              display: inline-block;
+              top: 0;
+              left: 0;
+              width: 40px;
+              height: 40px;
+              z-index: 2;
+            }
+          }
+        }
         .test--started {
           background: yellow;
         }
         .test--passed {
-          position: relative;
           background-color: #2A2D33;
           color: white;
         }
@@ -115,6 +145,18 @@
           top: 0;
           width: 40px;
         }
+         .close-triangle {
+           position: absolute;
+           visibility: hidden;
+         }
+         .close-icon {
+           position: absolute;
+           visibility: hidden;
+         }
+         .close-link {
+           position: absolute;
+           visibility: hidden;
+         }
       }
 
       // column size adjustmnets for different pages

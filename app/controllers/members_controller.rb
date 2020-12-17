@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: %i[show edit update destroy]
+  before_action :set_member, only: %i[show edit update destroy close_test]
 
   def index
     @members = current_company.members
@@ -33,6 +33,16 @@ class MembersController < ApplicationController
   def destroy
     @member.destroy
     redirect_to members_url, notice: 'Member was successfully destroyed.'
+  end
+
+  def close_test
+    member_test = @member.member_tests.find_by(test_id: params[:test_id])
+    if member_test.nil?
+      @member.member_tests.create(test_id: params[:test_id], status: :passed)
+    else
+      member_test.update(status: :passed)
+    end
+    redirect_to @member, notice: 'Test was successfully closed.'
   end
 
   private
