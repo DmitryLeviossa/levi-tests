@@ -6,9 +6,23 @@
     = link_to 'Edit', edit_member_group_path(@member_group), class: 'btn btn--primary'
     = link_to 'Destroy', @member_group, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn--black btn--inline'
   .table-outer
-    h4 Test Groups
-    - @member_group.test_groups.each do |test_group|
-      = link_to "#{test_group.name}, ", test_group_path(test_group), class: 'link'
-    h4 Members
-    - @member_group.members.each do |member|
-      = link_to "#{member.name}, ", member_path(member), class: 'link'
+    table.table.table-striped.table-member-group
+      thead
+        tr
+          th Name
+          th Email
+          th Current test
+          th Passed tests
+          th Score
+
+      tbody
+        - @member_group.members.each do |member|
+          tr
+            td = link_to member.name, member_path(member), class: 'link'
+            td = member.email
+            - current_test = member.member_tests.where.not(status: :passed).last
+            td = "#{current_test&.test&.test_group&.name} (#{current_test&.test&.name})"
+            td = member.member_tests.where(status: :passed).count
+            td = member.member_tests.where(status: :passed).joins(:test).sum('tests.value').to_i
+  h1 Matrix
+  = render partial: "layouts/matrix", locals: { tests_container: @member_group }
