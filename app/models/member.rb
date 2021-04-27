@@ -15,8 +15,8 @@ class Member < ApplicationRecord
   belongs_to :member_group
   
   has_many :member_tests, dependent: :destroy
-  has_many :test_groups, through: :member_group
   has_many :tests, through: :test_groups
+  has_many :test_groups, through: :member_group
 
   validates :name, :email, presence: true
   validates :name, uniqueness: { scope: :company_id }
