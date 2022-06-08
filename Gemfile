@@ -71,6 +71,3 @@ gem 'hamburgers'
 gem "select2-rails", "~> 4.0"
 
 gem "jwt", "~> 2.2"
-
-gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
-
