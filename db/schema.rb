@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_121658) do
+ActiveRecord::Schema.define(version: 2022_05_11_074622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2020_10_28_121658) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["member_test_id"], name: "index_attempts_on_member_test_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "post_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -107,6 +117,15 @@ ActiveRecord::Schema.define(version: 2020_10_28_121658) do
     t.index ["token"], name: "index_members_on_token", unique: true
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "text"
     t.bigint "test_id"
@@ -141,8 +160,36 @@ ActiveRecord::Schema.define(version: 2020_10_28_121658) do
     t.index ["test_group_id"], name: "index_tests_on_test_group_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "provider", default: "email", null: false
+    t.string "uid", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.boolean "allow_password_change", default: false
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.string "name"
+    t.string "nickname"
+    t.string "image"
+    t.string "email"
+    t.text "tokens"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "sername"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+  end
+
   add_foreign_key "answers", "questions"
   add_foreign_key "attempts", "member_tests"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "member_group_test_groups", "member_groups"
   add_foreign_key "member_group_test_groups", "test_groups"
   add_foreign_key "member_groups", "companies"
@@ -155,6 +202,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_121658) do
   add_foreign_key "member_tests", "tests"
   add_foreign_key "members", "companies"
   add_foreign_key "members", "member_groups"
+  add_foreign_key "posts", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_groups", "companies"
   add_foreign_key "tests", "companies"

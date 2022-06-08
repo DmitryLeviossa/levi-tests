@@ -56,6 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem 'simple_token_authentication', '~> 1.0' # see semver.org
 gem 'sassc-rails', '>= 2.1.0'
 gem 'jquery-rails'
 gem 'formtastic', '~> 3.0'
@@ -70,3 +71,6 @@ gem 'hamburgers'
 gem "select2-rails", "~> 4.0"
 
 gem "jwt", "~> 2.2"
+
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+
