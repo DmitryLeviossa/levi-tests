@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  acts_as_token_authentication_handler_for Company
+
   before_action :authenticate_company!, except: %i[user_matrix public_test]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
