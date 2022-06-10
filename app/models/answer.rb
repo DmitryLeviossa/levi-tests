@@ -5,7 +5,7 @@
 #  id          :bigint           not null, primary key
 #  text        :text
 #  question_id :bigint
-#  is_right    :boolean          default("false")
+#  is_right    :boolean          default(FALSE)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

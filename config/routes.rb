@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   get '/public_test', to: 'application#public_test'
 
   devise_for :companies
+  namespace :api do
+    resources :matrix, only: :index
+  end
 
+  resources :settings, only: :index do
+    get :regenerate, on: :collection
+  end
+  
   resources :test_groups
   resources :tests
   resources :members do

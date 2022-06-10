@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: test_groups
+#
+#  id         :bigint           not null, primary key
+#  name       :string           not null
+#  company_id :bigint
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  position   :integer          default(0)
+#
 class TestGroup < ApplicationRecord
   belongs_to :company
 
