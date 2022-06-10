@@ -1,17 +1,18 @@
 /*
   *= require select2
 */
-@import "navbar";
-@import "login";
-@import "signup";
-@import "formtastic";
-@import "footer";
-@import "hamburgers-settings";
-@import "hamburgers";
-@import "table";
-@import "form";
-@import "questions";
-@import "./variables.scss";
+@import 'navbar';
+@import 'login';
+@import 'signup';
+@import 'formtastic';
+@import 'footer';
+@import 'hamburgers-settings';
+@import 'hamburgers';
+@import 'table';
+@import 'form';
+@import 'questions';
+@import 'settings';
+@import './variables.scss';
 
 html,
 body {
@@ -23,12 +24,12 @@ body {
 }
 .wrapper {
   min-height: 100%;
-  margin-bottom: -280px
+  margin-bottom: -280px;
 }
 .push {
   height: 280px;
 }
 .value-subtitle {
   display: inline;
-  color: #38A711;
+  color: #38a711;
 }

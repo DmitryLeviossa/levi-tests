@@ -1,0 +1,4 @@
+.settings
+  h1 Settings
+  = text_field_tag nil, current_company.authentication_token, disabled: true
+  = link_to "Regenerate", regenerate_settings_path
