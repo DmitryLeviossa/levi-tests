@@ -1,6 +1,4 @@
 class SettingsController < ApplicationController
-  def index
-  end
 
   def regenerate
     token = Devise.friendly_token
