@@ -20,4 +20,28 @@ class Member < ApplicationRecord
 
   validates :name, :email, presence: true
   validates :name, uniqueness: { scope: :company_id }
+
+  def matrix
+    matrix = {}
+    member_group.test_groups.order(:position).find_each do |test_group|
+      matrix[test_group.name] = test_group.tests.order(:module).map do |test|
+        member_test = member_tests.find_by(test: test)
+        is_active = member_test.present? && !member_test.passed?
+        is_passed = member_test&.passed? || false
+        {
+          id: test.id,
+          name: test.name,
+          questions_count: test.questions_count,
+          pass_count: test.pass_count,
+          value: test.value,
+          module: test.module,
+          description: test.description,
+          is_passed: is_passed,
+          is_active: is_active
+        }
+      end
+    end
+
+    matrix
+  end
 end
