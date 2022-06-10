@@ -1,4 +1,6 @@
 .settings
-  h1 Settings
-  = text_field_tag nil, current_company.authentication_token, disabled: true
-  = link_to "Regenerate", regenerate_settings_path
+  h2 API token
+
+  = text_field_tag nil, current_company.authentication_token, {disabled: true, :class => "inpit--inline"}
+  = link_to "Regenerate", regenerate_settings_path, {:class => "btn btn--black btn--inline"}
+
