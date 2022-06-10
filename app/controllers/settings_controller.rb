@@ -3,13 +3,9 @@ class SettingsController < ApplicationController
   end
 
   def regenerate
-    current_company.update(authentication_token: generate_new_token)
+    token = Devise.friendly_token
+    current_company.update(authentication_token: token)
     render :index
   end
 
-  private
-
-  def generate_new_token
-    Devise.friendly_token
-  end
 end
