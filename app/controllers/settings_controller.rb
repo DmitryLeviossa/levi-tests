@@ -5,5 +5,4 @@ class SettingsController < ApplicationController
     current_company.update(authentication_token: token)
     render :index
   end
-
 end

@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: member_test_questions
+#
+#  id             :bigint           not null, primary key
+#  question_id    :bigint
+#  member_test_id :bigint
+#  answer_id      :bigint
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#
 class MemberTestQuestion < ApplicationRecord
   belongs_to :member_test
   belongs_to :question

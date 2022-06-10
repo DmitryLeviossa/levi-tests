@@ -9,6 +9,10 @@
 #  pass_count      :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  test_group_id   :bigint           not null
+#  value           :integer          default(0)
+#  module          :integer          default(1)
+#  description     :text
 #
 class Test < ApplicationRecord
   belongs_to :company

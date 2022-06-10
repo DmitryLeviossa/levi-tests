@@ -15,5 +15,4 @@ class Api::MatrixController < Api::ApplicationController
     return render json: {message: 'No email provided'}, status: 422 if params[:email].nil?
     return render json: {message: 'No member with such email'}, status: 404 if member.nil?
   end
-
 end

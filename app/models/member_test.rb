@@ -3,7 +3,7 @@
 # Table name: member_tests
 #
 #  id         :bigint           not null, primary key
-#  status     :string           default("started"), not null
+#  status     :string           default("draft"), not null
 #  member_id  :bigint
 #  test_id    :bigint
 #  created_at :datetime         not null

@@ -2,12 +2,14 @@
 #
 # Table name: members
 #
-#  id         :bigint           not null, primary key
-#  name       :string
-#  email      :string
-#  company_id :bigint
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :bigint           not null, primary key
+#  name            :string
+#  email           :string
+#  company_id      :bigint
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  member_group_id :bigint
+#  token           :string
 #
 class Member < ApplicationRecord
   has_secure_token
@@ -27,7 +29,7 @@ class Member < ApplicationRecord
       matrix[test_group.name] = test_group.tests.order(:module).map do |test|
         member_test = member_tests.find_by(test: test)
         is_active = member_test.present? && !member_test.passed?
-        is_passed = member_test&.passed? || false
+        is_passed = !!member_test&.passed? || false
         {
           id: test.id,
           name: test.name,

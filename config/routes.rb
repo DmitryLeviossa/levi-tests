@@ -6,14 +6,13 @@ Rails.application.routes.draw do
 
   devise_for :companies
   namespace :api do
-    resources :matrix, only: [:index]
+    resources :matrix, only: :index
   end
 
-  resources :settings, only: [:index] do
+  resources :settings, only: :index do
     get :regenerate, on: :collection
   end
   
-  # Ex:- scope :active, -> {where(:active => true)}
   resources :test_groups
   resources :tests
   resources :members do

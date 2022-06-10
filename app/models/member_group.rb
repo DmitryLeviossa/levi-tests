@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: member_groups
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  company_id :bigint
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class MemberGroup < ApplicationRecord
   belongs_to :company
   
