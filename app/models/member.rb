@@ -33,6 +33,7 @@ class Member < ApplicationRecord
         {
           id: test.id,
           name: test.name,
+          all_questions_count: test.questions.count,
           questions_count: test.questions_count,
           pass_count: test.pass_count,
           value: test.value,
