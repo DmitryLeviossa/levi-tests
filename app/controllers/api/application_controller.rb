@@ -1,6 +1,8 @@
 class Api::ApplicationController < ActionController::API
   before_action :authenticate_company, if: -> { current_company.nil? }
 
+  def ping; end
+
   private
 
   def authenticate_company

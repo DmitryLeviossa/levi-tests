@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :companies
   namespace :api do
+    get :ping, controller: 'application'
     resources :matrix, only: :index
   end
 
